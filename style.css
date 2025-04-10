@@ -1,0 +1,36 @@
+/* Basic body/container styling */
+body {
+    font-family: sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto; /* Center the content */
+    padding: 20px;
+    border: 1px solid #ddd; /* Optional border */
+    border-radius: 5px; /* Optional rounded corners */
+}
+
+h1, h2 { /* Keep h2 styling in case it's added later */
+    color: #333;
+}
+
+/* Social Icon Styling */
+.social-icons {
+    text-align: right; /* Align icons to the right */
+    margin-bottom: 1em; /* Add some space below icons */
+}
+
+.social-icons a {
+    margin-left: 10px; /* Space between icons */
+    color: #333; /* Icon color */
+    font-size: 1.5em; /* Icon size */
+    text-decoration: none; /* Remove underline from links */
+}
+
+.social-icons a:hover {
+    color: #007bff; /* Change color on hover (example blue) */
+}
