@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant DeepResearch: Building a Multi-Agent System | Yang Li</title>
+    <meta name="description" content="Learn about building a multi-agent system using MCP servers to help find great restaurants through AI-powered research and decision-making.">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="../assets/images/favicon.ico" type="image/x-icon">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <link rel="stylesheet" href="../assets/css/blog.css">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <a href="../index.html" class="nav-logo">Yang Li</a>
+                <ul class="nav-links">
+                    <li><a href="../index.html" class="nav-link">Home</a></li>
+                    <li><a href="index.html" class="nav-link">Blog</a></li>
+                </ul>
+                <button class="nav-toggle" aria-label="Toggle navigation">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="content">
+        <div class="blog-container">
+            <!-- Back to Blog -->
+            <a href="index.html" class="back-to-home">Back to Blog</a>
+            
+            <!-- Post Header -->
+            <article class="post animate-on-scroll">
+                <header class="post-header">
+                    <h1>Restaurant DeepResearch: Building a Multi-Agent System to Help You Find a Great Place to Eat</h1>
+                    <div class="post-meta">
+                        <span class="post-date">April 1, 2025</span>
+                    </div>
+                </header>
+                
+                <!-- Post Content -->
+                <div class="post-content">
+                    <p>
+                        This project is inspired by several ideas:
+                    </p>
+                    
+                    <ol>
+                        <li>
+                            <strong>MCP Servers' Growing Popularity:</strong> Nowadays, MCP servers have become very popular, significantly streamlining the process for developers creating tool-calling functions for large language models (LLMs). For example, I use the Google Maps MCP server in this project, combining seven useful tools—<code>search_nearby</code>, <code>get_place_details</code>, <code>maps_geocode</code>, <code>maps_reverse_geocode</code>, <code>maps_distance_matrix</code>, <code>maps_directions</code>, and <code>maps_elevation</code>—into a single JSON file, which is remarkably efficient.
+                        </li>
+                        <li>
+                            <strong>Mimicking Real-life Decision-making:</strong> When searching for places to eat, I typically use Google Maps and then discuss options with my friends, eventually reaching a satisfying decision. So why not allow AI agents to replicate this same process?
+                        </li>
+                        <li>
+                            <strong>Encouraging Open-ended Exploration:</strong> I don't believe we necessarily need a rigid workflow for this type of task. Our successful decisions often result from discussions and interactions with external tools like Google. Creating an environment where agents can autonomously explore ideas is crucial. That's why I chose to use CAMEL-AI's framework instead of alternatives like LangChain or AutoGen.
+                        </li>
+                    </ol>
+                    
+                    <p>
+                        Based on these ideas, my approach was to break down the task into manageable components or, more accurately, recreate my daily decision-making environment for AI agents.
+                    </p>
+                    
+                    <h2>Step-by-step Approach</h2>
+                    
+                    <p>
+                        Firstly, my project is triggered by user prompts. From a product design perspective, it's unrealistic to expect users to write prompts in markdown or clearly specify every need. Therefore, we require a robust reasoning model to thoroughly understand user intentions and needs.
+                    </p>
+                    
+                    <p>
+                        Secondly, beyond understanding users, models also need to understand each other. Thus, we applied prompt engineering techniques to ensure the output from the first reasoning model is structured clearly in markdown format. This step significantly enhances the task environment, setting the stage effectively for subsequent role-playing sessions.
+                    </p>
+                    
+                    <p>
+                        Thirdly, the project's most crucial component is the role-playing session itself. Since this is my first significant project, I chose a straightforward implementation—directly using CAMEL's pre-defined <code>OwlRolePlaying</code> class. This class involves two roles: a user and an assistant. To conceptualize this, imagine chatting with a friend who happens to be an interactive toolbox. When you share ideas, it executes relevant tools, provides feedback, and reviews its findings—truly an impressive capability. Creating such an environment is indeed essential. I'll demonstrate some examples below. For the assistant role, I highly recommend using a powerful tool-calling model.
+                    </p>
+                    
+                    <p>
+                        Finally, the sessions are constrained to 10 rounds, ensuring the agents maintain high-quality dialogue within a limited context. The assistant's final answer is the output you receive, clearly explaining why a specific restaurant was chosen while offering engaging, meaningful interactions.
+                    </p>
+                    
+                    <h2>Evaluation Methodology</h2>
+                    
+                    <p>
+                        To evaluate the results, I compared outcomes using the same prompts across various platforms: Google DeepResearch, Perplexity DeepResearch, OpenAI DeepResearch, and Manus (yes, I recently got access). Although I lack a formal benchmark, the comparative results are listed below.
+                    </p>
+                    
+                    <h2>Challenges Encountered</h2>
+                    
+                    <ol>
+                        <li>
+                            Initially, upon choosing CAMEL's framework, I instinctively wanted to design explicit workflows (decomposing large tasks into smaller subtasks, assigning individual agents, and finally synthesizing the results). Being stuck on this approach delayed the project by 2-3 days.
+                        </li>
+                        <li>
+                            Through A/B testing, I assessed whether foundational models significantly impacted results. Starting with Gemini 2.0 Flash and then upgrading to Gemini 2.5 Pro Experimental, I observed considerable improvement in both the quality of results and the role-playing interactions. Interestingly, Gemini 1.5 Pro frequently attempted to invoke external tools despite clear prompt instructions, whereas Gemini 2.5 Pro resolved this issue entirely. Overall, Gemini 2.5 Pro proved extremely effective.
+                        </li>
+                        <li>
+                            I attempted adding a critic role to the session, but due to possible misconfiguration, this resulted in infinite loops.
+                        </li>
+                        <li>
+                            As a beginner in programming, uploading my project to GitHub was challenging. Despite using Docker to streamline the process, I encountered persistent issues, particularly with errors stating my Google Maps API key was invalid.
+                        </li>
+                    </ol>
+                    
+                    <h2>Areas for Improvement</h2>
+                    
+                    <ol>
+                        <li>
+                            While Google Maps MCP server is robust, integrating additional tools could enhance results further.
+                        </li>
+                        <li>
+                            During role-playing sessions, agents occasionally expressed uncertainty regarding user requirements, proceeding based on assumptions. Thus, incorporating human-in-the-loop interactions—where agents actively seek additional details from humans—could greatly enhance research depth. Currently, no available deep research tools offer this capability.
+                        </li>
+                        <li>
+                            Although I haven't precisely measured the cost per search, based on observation, it appears expensive. Improving efficiency remains crucial.
+                        </li>
+                        <li>
+                            Addressing points 2 and 3, developing a customized Roleplay class is essential, and this work is underway.
+                        </li>
+                    </ol>
+                    
+                    <h2>Final Thoughts</h2>
+                    
+                    <p>
+                        AI Agents will significantly reshape the AI market landscape. However, we shouldn't impose human-centric thinking when designing AI systems. While LLMs exhibit human-like qualities, they follow fundamentally different rules. Thus, it's important to provide environments tailored specifically to AI agents, allowing them to reach their full potential. Rigid workflows may no longer be optimal; instead, we should leverage flexible environments to foster positive outcomes. My next project will explore this philosophy further.
+                    </p>
+                    
+                    <p>
+                        Also, with Google's recent release of A2A, we are witnessing even greater potential for a sophisticated Multi-Agent web ecosystem. Let's keep pushing the boundaries.
+                    </p>
+                </div>
+                
+                <!-- Post Navigation -->
+                <div class="post-navigation">
+                    <div class="prev-post">
+                        <!-- This would link to the previous post when available -->
+                    </div>
+                    <div class="next-post">
+                        <!-- This would link to the next post when available -->
+                    </div>
+                </div>
+            </article>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Yang Li. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="../assets/js/main.js"></script>
+</body>
+</html>
