@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Favicon Generator</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: #1d1d1f;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        canvas {
+            border: 1px solid #d2d2d7;
+            margin: 20px 0;
+        }
+        button {
+            background-color: #0066cc;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-weight: 500;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+        button:hover {
+            background-color: #0077ed;
+        }
+        .instructions {
+            background-color: #f5f5f7;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Simple Favicon Generator</h1>
+    <p>Use this tool to create a simple favicon for your GitHub Pages site.</p>
+    
+    <div class="instructions">
+        <h2>Instructions:</h2>
+        <ol>
+            <li>Choose a background color for your favicon</li>
+            <li>Choose a text color</li>
+            <li>Enter 1-2 characters for your favicon (e.g., "YL" for Yang Li)</li>
+            <li>Click "Generate Favicon"</li>
+            <li>Click "Download Favicon" to save the .ico file</li>
+            <li>Move the downloaded favicon.ico to your assets/images/ directory</li>
+        </ol>
+    </div>
+    
+    <div>
+        <label for="bgColor">Background Color:</label>
+        <input type="color" id="bgColor" value="#0066cc">
+        
+        <label for="textColor" style="margin-left: 20px;">Text Color:</label>
+        <input type="color" id="textColor" value="#ffffff">
+        
+        <label for="text" style="margin-left: 20px;">Text (1-2 characters):</label>
+        <input type="text" id="text" maxlength="2" value="YL" style="width: 40px; text-align: center;">
+    </div>
+    
+    <div>
+        <button id="generate">Generate Favicon</button>
+        <button id="download" disabled>Download Favicon</button>
+    </div>
+    
+    <canvas id="canvas" width="64" height="64"></canvas>
+    
+    <script>
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+        const generateBtn = document.getElementById('generate');
+        const downloadBtn = document.getElementById('download');
+        const bgColorInput = document.getElementById('bgColor');
+        const textColorInput = document.getElementById('textColor');
+        const textInput = document.getElementById('text');
+        
+        // Generate favicon
+        generateBtn.addEventListener('click', () => {
+            const bgColor = bgColorInput.value;
+            const textColor = textColorInput.value;
+            const text = textInput.value || 'YL';
+            
+            // Clear canvas
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            // Draw background
+            ctx.fillStyle = bgColor;
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            
+            // Draw text
+            ctx.fillStyle = textColor;
+            ctx.font = 'bold 32px -apple-system, BlinkMacSystemFont, sans-serif';
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            ctx.fillText(text, canvas.width / 2, canvas.height / 2);
+            
+            // Enable download button
+            downloadBtn.disabled = false;
+        });
+        
+        // Download favicon
+        downloadBtn.addEventListener('click', () => {
+            // Convert canvas to blob
+            canvas.toBlob((blob) => {
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = 'favicon.ico';
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                URL.revokeObjectURL(url);
+            });
+        });
+        
+        // Generate default favicon on load
+        window.addEventListener('load', () => {
+            generateBtn.click();
+        });
+    </script>
+</body>
+</html>

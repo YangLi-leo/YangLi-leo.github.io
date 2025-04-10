@@ -1,0 +1,197 @@
+/* 
+ * Blog-specific CSS for Yang Li's GitHub Pages
+ * Apple-inspired design with clean aesthetics and responsive layout
+ */
+
+/* Import main styles */
+@import url('../css/main.css');
+
+/* ===== Blog Layout ===== */
+.blog-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 var(--container-padding);
+}
+
+/* ===== Blog Header ===== */
+.blog-header {
+  text-align: center;
+  margin-bottom: var(--spacing-lg);
+}
+
+.blog-title {
+  font-size: 2.5rem;
+  margin-bottom: var(--spacing-xs);
+}
+
+.blog-description {
+  color: var(--color-text-secondary);
+  font-size: 1.2rem;
+}
+
+/* ===== Blog Post List ===== */
+.post-list {
+  list-style: none;
+}
+
+.post-item {
+  margin-bottom: var(--spacing-lg);
+  padding-bottom: var(--spacing-lg);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.post-item:last-child {
+  border-bottom: none;
+}
+
+.post-title {
+  font-size: 1.8rem;
+  margin-bottom: var(--spacing-xs);
+}
+
+.post-meta {
+  display: flex;
+  align-items: center;
+  color: var(--color-text-secondary);
+  font-size: 0.9rem;
+  margin-bottom: var(--spacing-sm);
+}
+
+.post-date {
+  margin-right: var(--spacing-sm);
+}
+
+.post-excerpt {
+  margin-bottom: var(--spacing-sm);
+}
+
+.post-read-more {
+  font-weight: 500;
+}
+
+/* ===== Single Blog Post ===== */
+.post-header {
+  margin-bottom: var(--spacing-lg);
+}
+
+.post-content {
+  line-height: 1.7;
+}
+
+.post-content p {
+  margin-bottom: var(--spacing-md);
+}
+
+.post-content h2 {
+  margin-top: var(--spacing-xl);
+  margin-bottom: var(--spacing-md);
+}
+
+.post-content h3 {
+  margin-top: var(--spacing-lg);
+  margin-bottom: var(--spacing-sm);
+}
+
+.post-content ul,
+.post-content ol {
+  margin-bottom: var(--spacing-md);
+  padding-left: var(--spacing-md);
+}
+
+.post-content li {
+  margin-bottom: var(--spacing-xs);
+}
+
+.post-content img {
+  margin: var(--spacing-md) auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.post-content blockquote {
+  border-left: 4px solid var(--color-accent);
+  padding-left: var(--spacing-md);
+  margin: var(--spacing-md) 0;
+  font-style: italic;
+  color: var(--color-text-secondary);
+}
+
+.post-content code {
+  font-family: "SF Mono", Consolas, Monaco, "Andale Mono", monospace;
+  background-color: var(--color-background-secondary);
+  padding: 0.2em 0.4em;
+  border-radius: 3px;
+  font-size: 0.9em;
+}
+
+.post-content pre {
+  background-color: var(--color-background-secondary);
+  padding: var(--spacing-md);
+  border-radius: 8px;
+  overflow-x: auto;
+  margin: var(--spacing-md) 0;
+}
+
+.post-content pre code {
+  background-color: transparent;
+  padding: 0;
+}
+
+/* ===== Post Navigation ===== */
+.post-navigation {
+  display: flex;
+  justify-content: space-between;
+  margin-top: var(--spacing-xl);
+  padding-top: var(--spacing-md);
+  border-top: 1px solid var(--color-border);
+}
+
+.post-navigation a {
+  display: flex;
+  align-items: center;
+  font-weight: 500;
+}
+
+.post-navigation .prev-post:before {
+  content: "←";
+  margin-right: var(--spacing-xs);
+}
+
+.post-navigation .next-post:after {
+  content: "→";
+  margin-left: var(--spacing-xs);
+}
+
+/* ===== Back to Home ===== */
+.back-to-home {
+  display: inline-flex;
+  align-items: center;
+  margin-bottom: var(--spacing-md);
+  font-weight: 500;
+}
+
+.back-to-home:before {
+  content: "←";
+  margin-right: var(--spacing-xs);
+}
+
+/* ===== Responsive Design ===== */
+@media (max-width: 768px) {
+  .blog-title {
+    font-size: 2rem;
+  }
+  
+  .post-title {
+    font-size: 1.5rem;
+  }
+  
+  .post-meta {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .post-date {
+    margin-right: 0;
+    margin-bottom: var(--spacing-xs);
+  }
+}
