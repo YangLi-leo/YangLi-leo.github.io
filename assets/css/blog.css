@@ -175,6 +175,226 @@
   margin-right: var(--spacing-xs);
 }
 
+/* ===== Blog Container for Comparison Windows ===== */
+.blog-container {
+  max-width: 1000px; /* Increased from 800px for wider comparison windows */
+}
+
+/* ===== Comparison Windows ===== */
+/* Comparison Windows Container */
+.comparison-container {
+  display: grid;
+  grid-template-columns: 1fr; /* Changed to vertical stack for better readability */
+  gap: var(--spacing-lg);
+  margin: var(--spacing-xl) 0;
+}
+
+/* Individual Comparison Window */
+.comparison-window {
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  background-color: var(--color-background);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  height: auto; /* Changed from fixed height to auto */
+  min-height: 500px; /* Minimum height */
+  max-height: 800px; /* Maximum height */
+  display: flex;
+  flex-direction: column;
+}
+
+.comparison-title {
+  padding: var(--spacing-sm);
+  background-color: var(--color-background-secondary);
+  border-bottom: 1px solid var(--color-border);
+  margin: 0;
+  font-size: 1.2rem; /* Increased from 1rem */
+  font-weight: 600;
+  text-align: center;
+}
+
+/* Content Container */
+.chat-container {
+  padding: var(--spacing-md);
+  overflow-y: auto;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+/* Tool Messages */
+.chat-message {
+  display: flex;
+  margin-bottom: var(--spacing-sm);
+}
+
+.message-content {
+  padding: var(--spacing-md);
+  border-radius: 12px;
+  width: 100%; /* Changed from max-width: 80% to use full width */
+  line-height: 1.6;
+}
+
+/* Tool Message (left side) */
+.tool-message {
+  justify-content: flex-start;
+  width: 100%;
+}
+
+.tool-message .message-content {
+  background-color: var(--color-background-secondary);
+  color: var(--color-text-primary);
+  border-radius: 12px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+/* Perplexity, Google, and OpenAI specific styling for better formatting */
+.perplexity-content h2,
+.google-content h2,
+.openai-content h2 {
+  font-size: 1.4rem;
+  margin-top: var(--spacing-md);
+  margin-bottom: var(--spacing-sm);
+  color: var(--color-text-primary);
+}
+
+.perplexity-content h3,
+.google-content h3,
+.openai-content h3 {
+  font-size: 1.2rem;
+  margin-top: var(--spacing-md);
+  margin-bottom: var(--spacing-xs);
+  color: var(--color-text-primary);
+}
+
+.perplexity-content h4,
+.google-content h4,
+.openai-content h4 {
+  font-size: 1.1rem;
+  margin-top: var(--spacing-sm);
+  margin-bottom: var(--spacing-xs);
+  color: var(--color-text-primary);
+}
+
+.perplexity-content p,
+.google-content p,
+.openai-content p {
+  margin-bottom: var(--spacing-sm);
+}
+
+.perplexity-content ul, 
+.perplexity-content ol,
+.google-content ul,
+.google-content ol,
+.openai-content ul,
+.openai-content ol {
+  margin-left: var(--spacing-md);
+  margin-bottom: var(--spacing-sm);
+}
+
+.perplexity-content li,
+.google-content li,
+.openai-content li {
+  margin-bottom: var(--spacing-xs);
+}
+
+.perplexity-content strong,
+.google-content strong,
+.openai-content strong {
+  font-weight: 600;
+}
+
+/* Table styling for comparison tables */
+.comparison-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: var(--spacing-md) 0;
+}
+
+.comparison-table th {
+  background-color: var(--color-background-secondary);
+  font-weight: 600;
+  text-align: left;
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border: 1px solid var(--color-border);
+}
+
+.comparison-table td {
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border: 1px solid var(--color-border);
+  vertical-align: top;
+}
+
+.comparison-table tr:nth-child(even) {
+  background-color: rgba(0, 0, 0, 0.02);
+}
+
+@media (max-width: 768px) {
+  .comparison-table {
+    font-size: 0.9rem;
+  }
+  
+  .comparison-table th,
+  .comparison-table td {
+    padding: var(--spacing-xs);
+  }
+}
+
+/* ===== GitHub Repository Showcase ===== */
+.github-repo-showcase {
+  display: flex;
+  align-items: center;
+  background-color: #f6f8fa; /* GitHub-like background color */
+  border: 1px solid #e1e4e8; /* GitHub-like border color */
+  border-radius: 6px;
+  padding: 20px;
+  margin: 30px 0;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.05);
+}
+
+.github-repo-icon {
+  font-size: 2.5rem;
+  margin-right: 20px;
+  color: #24292e; /* GitHub dark color */
+}
+
+.github-repo-content {
+  flex: 1;
+}
+
+.github-repo-title {
+  font-size: 1.4rem;
+  margin: 0 0 10px 0;
+  color: #0366d6; /* GitHub blue color */
+}
+
+.github-repo-description {
+  margin: 0 0 15px 0;
+  color: #586069; /* GitHub text color */
+}
+
+.github-repo-button {
+  display: inline-block;
+  background-color: #2ea44f; /* GitHub green button color */
+  color: white;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: background-color 0.2s;
+}
+
+.github-repo-button:hover {
+  background-color: #22863a; /* Darker green on hover */
+  text-decoration: none;
+  color: white;
+}
+
+.github-repo-button i {
+  margin-right: 5px;
+}
+
 /* ===== Responsive Design ===== */
 @media (max-width: 768px) {
   .blog-title {
@@ -193,5 +413,17 @@
   .post-date {
     margin-right: 0;
     margin-bottom: var(--spacing-xs);
+  }
+  
+  .comparison-window {
+    min-height: 400px;
+  }
+  
+  .comparison-title {
+    font-size: 1rem;
+  }
+  
+  .message-content {
+    padding: var(--spacing-sm);
   }
 }
