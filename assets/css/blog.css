@@ -37,7 +37,7 @@
 
 /* ===== Blog Layout ===== */
 .blog-container {
-  max-width: 700px; /* Reduced from 800px for narrower layout */
+  max-width: 900px; /* Increased from 700px for better readability */
   margin: 0 auto;
   padding: 0 var(--container-padding);
 }
@@ -160,7 +160,7 @@
   border-radius: 8px;
   box-shadow: 0 0 0 1px rgba(15, 15, 15, 0.1), 0 2px 4px rgba(15, 15, 15, 0.1);
   display: block;
-  max-width: 50%; /* Further reduced from 60% to make images smaller */
+  max-width: 70%; /* Increased from 50% for better visibility */
   width: auto;
   height: auto;
   transition: transform 0.2s ease;
@@ -260,9 +260,7 @@
 }
 
 /* ===== Blog Container for Comparison Windows ===== */
-.blog-container {
-  max-width: 700px; /* Reduced for narrower layout and more vertical scrolling */
-}
+/* Container width is already defined above */
 
 /* ===== Comparison Windows ===== */
 /* Comparison Windows Container */
@@ -515,9 +513,9 @@
 /* ===== Blog Sidebar Layout ===== */
 .blog-container.with-sidebar {
   display: grid;
-  grid-template-columns: 180px 1fr; /* Reduced sidebar width from 220px to 180px */
-  gap: var(--spacing-sm); /* Reduced gap from md to sm */
-  max-width: 900px; /* Reduced from 1100px for narrower layout */
+  grid-template-columns: 220px 1fr; /* Increased sidebar width for better readability */
+  gap: var(--spacing-md); /* Increased gap for better spacing */
+  max-width: 1100px; /* Increased from 900px to give more space to content */
 }
 
 .blog-sidebar {
