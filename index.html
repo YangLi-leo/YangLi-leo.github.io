@@ -25,6 +25,11 @@
                     <li><a href="index.html" class="nav-link">Home</a></li>
                     <li><a href="blog/index.html" class="nav-link">Blog</a></li>
                 </ul>
+                <div class="theme-toggle">
+                    <button id="theme-toggle-btn" aria-label="Toggle dark mode">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                </div>
                 <button class="nav-toggle" aria-label="Toggle navigation">
                     <span></span>
                     <span></span>
@@ -38,42 +43,92 @@
     <main class="content">
         <div class="container">
             <!-- Hero Section -->
-            <section class="hero animate-on-scroll">
-                <h1>Yang Li</h1>
-                <p>Undergraduate Student in Computer Science</p>
-                <p>Passionate about web development, open source, and building cool things.</p>
-                
-                <!-- Social Icons -->
-                <div class="social-icons">
-                    <a href="mailto:liyangauthority@gmail.com" aria-label="Email">
-                        <i class="fas fa-envelope"></i>
-                    </a>
-                    <a href="https://github.com/YangLi-leo" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-                        <i class="fab fa-github"></i>
-                    </a>
-                    <a href="https://x.com/YangLi_leo" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
-                        <i class="fab fa-twitter"></i>
-                    </a>
+            <section class="hero-compact animate-on-scroll">
+                <div class="hero-content">
+                    <div class="hero-text">
+                        <h1>Yang Li</h1>
+                        <p class="hero-subtitle">CS Undergrad | Web Developer | AI Enthusiast</p>
+                    </div>
+                    
+                    <!-- Social Icons -->
+                    <div class="social-icons">
+                        <a href="mailto:liyangauthority@gmail.com" aria-label="Email">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                        <a href="https://github.com/YangLi-leo" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://x.com/YangLi_leo" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/yanglileo25" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                    </div>
                 </div>
             </section>
 
             <!-- Blog Section -->
             <section class="animate-on-scroll">
-                <h2>Latest from the Blog</h2>
-                <ul class="blog-list">
-                    <!-- Blog posts will appear here -->
-                </ul>
-                <a href="blog/index.html" class="button">View All Posts</a>
+                <div class="section-header">
+                    <h2>Latest from the Blog</h2>
+                    <a href="blog/index.html" class="section-link">View All Posts →</a>
+                </div>
+                
+                <div class="featured-blog">
+                    <div class="featured-blog-content">
+                        <div class="featured-label">Featured Post</div>
+                        <h3>
+                            <a href="blog/reinforcement-learning-llm-agents.html">How Reinforcement Learning Unlocks LLM Agents Capabilities</a>
+                        </h3>
+                        <div class="blog-item-meta">May 11, 2025</div>
+                        <p>Exploring how reinforcement learning enhances LLM capabilities, with insights from search optimization and recent developments in AI.</p>
+                        <a href="blog/reinforcement-learning-llm-agents.html" class="post-read-more">Read more →</a>
+                    </div>
+                </div>
             </section>
-
-            <!-- Tech Reports Section -->
+            
+            <!-- Content Grid Section -->
             <section class="animate-on-scroll">
-                <h2>Tech Reports</h2>
-                <div class="card">
-                    <div class="card-content">
-                        <h3>Notes on using LoRA for style adaptation in models</h3>
-                        <p>A technical exploration of Low-Rank Adaptation (LoRA) techniques for efficient model fine-tuning and style transfer.</p>
-                        <p><em>Coming soon</em></p>
+                <div class="section-header">
+                    <h2>Explore Content</h2>
+                </div>
+                
+                <div class="content-grid">
+                    <div class="content-grid-item">
+                        <div class="content-grid-content">
+                            <h3 class="content-grid-title">AI Projects</h3>
+                            <div class="content-grid-meta">Updated May 2025</div>
+                            <p>Explore my latest AI projects including multi-agent systems, language models, and machine learning applications.</p>
+                            <a href="#" class="post-read-more">View Projects →</a>
+                        </div>
+                    </div>
+                    
+                    <div class="content-grid-item">
+                        <div class="content-grid-content">
+                            <h3 class="content-grid-title">Web Development</h3>
+                            <div class="content-grid-meta">Updated May 2025</div>
+                            <p>Check out my web development work including responsive designs, interactive applications, and modern frameworks.</p>
+                            <a href="#" class="post-read-more">View Projects →</a>
+                        </div>
+                    </div>
+                    
+                    <div class="content-grid-item">
+                        <div class="content-grid-content">
+                            <h3 class="content-grid-title">Tutorials and Guides</h3>
+                            <div class="content-grid-meta">Updated May 2025</div>
+                            <p>Learn from my step-by-step tutorials on programming, AI development, and web technologies.</p>
+                            <a href="#" class="post-read-more">View Tutorials →</a>
+                        </div>
+                    </div>
+                    
+                    <div class="content-grid-item">
+                        <div class="content-grid-content">
+                            <h3 class="content-grid-title">Research Papers</h3>
+                            <div class="content-grid-meta">Updated May 2025</div>
+                            <p>Read my latest research papers and academic work in computer science and artificial intelligence.</p>
+                            <a href="#" class="post-read-more">View Papers →</a>
+                        </div>
                     </div>
                 </div>
             </section>

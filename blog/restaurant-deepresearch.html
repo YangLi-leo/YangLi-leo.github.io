@@ -31,13 +31,44 @@
                     <span></span>
                     <span></span>
                 </button>
+                <div class="theme-toggle">
+                    <button id="theme-toggle-btn" aria-label="Toggle dark mode">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                </div>
             </nav>
         </div>
     </header>
 
     <!-- Main Content -->
     <main class="content">
-        <div class="blog-container">
+        <div class="blog-container with-sidebar">
+            <!-- Blog Sidebar -->
+            <aside class="blog-sidebar">
+                <div class="sidebar-section">
+                    <h3>Categories</h3>
+                    <ul class="sidebar-categories">
+                        <li><a href="../blog/index.html">All Posts</a></li>
+                        <li><a href="#" class="active">AI</a></li>
+                        <li><a href="#">Web Development</a></li>
+                        <li><a href="#">Projects</a></li>
+                        <li><a href="#">Tutorials</a></li>
+                    </ul>
+                </div>
+                
+                <div class="sidebar-section">
+                    <h3>Recent Posts</h3>
+                    <ul class="sidebar-posts">
+                        <li>
+                            <a href="restaurant-deepresearch.html" class="sidebar-post active">
+                                <span class="sidebar-post-title">Restaurant DeepResearch</span>
+                                <span class="sidebar-post-date">April 11, 2025</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </aside>
+            
             <!-- Back to Blog -->
             <a href="index.html" class="back-to-home">Back to Blog</a>
             
@@ -47,6 +78,10 @@
                     <h1>Restaurant DeepResearch: Creating a Multi-Agent System Inspired by Real-Life Decision-Making via Using MCP Server</h1>
                     <div class="post-meta">
                         <span class="post-date">April 11, 2025</span>
+                        <span class="post-categories">
+                            <a href="#" class="post-category">AI</a>
+                            <a href="#" class="post-category">Projects</a>
+                        </span>
                     </div>
                 </header>
                 
