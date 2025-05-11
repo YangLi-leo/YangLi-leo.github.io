@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How Reinforcement Learning Unlocks LLM Agents Capabilities | Yang Li</title>
+    <meta name="description" content="Exploring how reinforcement learning enhances LLM capabilities, with insights from search optimization and recent developments in AI.">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="../assets/images/favicon.ico" type="image/x-icon">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <link rel="stylesheet" href="../assets/css/blog.css">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <a href="../index.html" class="nav-logo">Yang Li</a>
+                <ul class="nav-links">
+                    <li><a href="../index.html" class="nav-link">Home</a></li>
+                    <li><a href="index.html" class="nav-link">Blog</a></li>
+                </ul>
+                <button class="nav-toggle" aria-label="Toggle navigation">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <div class="theme-toggle">
+                    <button id="theme-toggle-btn" aria-label="Toggle dark mode">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="content">
+        <div class="blog-container with-sidebar">
+            <!-- Sidebar -->
+            <aside class="blog-sidebar animate-on-scroll">
+                <div class="sidebar-section">
+                    <h3>Categories</h3>
+                    <ul class="sidebar-categories">
+                        <li><a href="#" class="active">AI</a></li>
+                        <li><a href="#">Research</a></li>
+                        <li><a href="#">Machine Learning</a></li>
+                        <li><a href="#">Projects</a></li>
+                        <li><a href="#">Tutorials</a></li>
+                    </ul>
+                </div>
+                <div class="sidebar-section">
+                    <h3>Recent Posts</h3>
+                    <ul class="sidebar-posts">
+                        <li>
+                            <a href="reinforcement-learning-llm-agents.html" class="sidebar-post active">
+                                <span class="sidebar-post-title">How Reinforcement Learning Unlocks LLM Agents Capabilities</span>
+                                <span class="sidebar-post-date">May 11, 2025</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="restaurant-deepresearch.html" class="sidebar-post">
+                                <span class="sidebar-post-title">Restaurant DeepResearch: Creating a Multi-Agent System</span>
+                                <span class="sidebar-post-date">April 11, 2025</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </aside>
+            
+            <!-- Main Content -->
+            <div>
+                <!-- Back to Blog -->
+                <a href="index.html" class="back-to-home">Back to Blog</a>
+                
+                <!-- Post Header -->
+                <article class="post animate-on-scroll">
+                    <header class="post-header">
+                        <h1>How Reinforcement Learning Unlocks LLM Agents Capabilities: Insights from Search Optimization</h1>
+                        <div class="post-meta">
+                            <span class="post-date">May 11, 2025</span>
+                            <span class="post-categories">
+                                <a href="#" class="post-category">AI</a>
+                                <a href="#" class="post-category">Research</a>
+                            </span>
+                        </div>
+                    </header>
+                    
+                    <!-- Post Featured Image -->
+                    <div class="post-featured-image">
+                        <img src="../assets/images/blog/research-training-overview.png" alt="Reinforcement Learning Training Overview" class="featured-image">
+                    </div>
+                    
+                    <!-- Post Content -->
+                    <div class="post-content">
+                        <figure class="block-color-gray_background callout">
+                            <div style="font-size:1.5em"><span class="icon">💡</span></div>
+                            <div style="width:100%">
+                                <p class="">End-to-end reinforcement learning will be the key to unlocking the next level of LLM capabilities.</p>
+                            </div>
+                        </figure>
+
+                        <p>The rapid progress of large language models over the past eight months has been astonishing, marked by significant milestones such as o1, R1, Gemini 2.5 Pro, Sonnet 3.7, o3, and o4. We've witnessed their transformation from basic chatbots into powerful agents capable of addressing complex, real-world problems. I still remember struggling with GPT-4 at the end of 2023, where prompting external searches was cumbersome and unreliable. However, the recent release of o4-mini showcased vastly improved search capabilities, transparently revealing the model's thought processes in real-time.</p>
+                        
+                        <p>DeepSeek-R1 notably highlights that, with sufficiently intelligent base models, reinforcement learning (RL) can replace supervised fine-tuning (SFT) altogether—allowing models to autonomously learn optimal behaviors. From my perspective, RL unlocks capabilities that go far beyond incremental benchmark improvements—it significantly enhances models' practical problem-solving abilities.</p>
+                        
+                        <p>I'll start by revisiting the influential 2021 paper <strong>WebGPT</strong>, which pioneered applying reinforcement learning (RL) to enhance LLM-driven search capabilities. After that, we'll explore recent developments in LLM-based search, where two main approaches dominate today: framework-driven methods combined with retrieval-augmented generation (RAG)—such as Search-o1—and RL-based methods, enabling models to autonomously refine search strategies and proactively use tools. Our discussion will focus on the RL-driven approach, highlighting why it emerges as the more effective strategy.</p>
+                        
+                        <h2>WebGPT (<a href="https://arxiv.org/pdf/2112.09332">https://arxiv.org/pdf/2112.09332</a>)</h2>
+                        
+                        <p>This paper was genuinely ahead of its time, and even now—nearly four years later—it remains highly insightful, innovatively enabling LLMs to leverage search engines for accessing up-to-date documents and mimicking human-like interactions. Rather than directly calling the Bing API, the authors developed a text-based browser simulator supporting actions such as Search, Click, Scroll, and Quote. Starting with GPT-3 (760M/13B/175B), initially lacking any inherent tool-use ability, they utilized reinforcement learning (RL) to help the model autonomously discover effective strategies.</p>
+                        
+                        <div class="code-block">
+                            <pre>
+┌───────────────────────────────────────┐
+│         Phase I: Model Building       │
+└───────────────────────────────────────┘
+        │
+        ▼
+┌──────────────────┐      ┌─────────────────────────────────────┐
+│ Human Demonstrations │─▶│ Split into "State → Action" samples │
+│   (state–action) │      └─────────────────────────────────────┘
+└──────────────────┘
+        │
+        ▼
+┌─────────────────────────────────────┐
+│ Fine-tune BC → get initial policy π₀│
+│ (Supervised learning)               │
+└─────────────────────────────────────┘
+        │
+        ▼
+┌──────────────────┐      ┌─────────────────────────────────────┐
+│ Answer Comparison │─▶│ Train Reward Model (RM)                │ 
+│   data (Q, A₁, A₂, label) │  │ (Pairwise logistic loss)       │
+└──────────────────┘      └─────────────────────────────────────┘
+        │
+        ▼
+┌─────────────────────────────────────┐
+│ Obtain scorer R(Q, A)               │
+└─────────────────────────────────────┘
+
+
+┌───────────────────────────────────────┐
+│    Phase II: Reinforcement Learning   │
+└───────────────────────────────────────┘
+        │ 
+        ▼
+┌───────────────────────────────────────┐
+│ Initialize policy π ← π₀(GPT-3 BC-SFT)│
+└───────────────────────────────────────┘
+        │
+        ▼
+┌───────────────────────────────────────┐
+│ 【Repeat until convergence】           |
+│ 1. Rollout: execute π in environment  │
+│    → produce answer A                 │
+│ 2. Reward: r = R(Q, A)                │
+│ 3. PPO update:                        │
+│    maximize E[r] − β·KL(π || π₀)      │
+│ 4. Update policy π                    │
+└───────────────────────────────────────┘
+        │
+        ▼
+┌───────────────────────────────────────┐
+│ Get optimized policy π*               │
+└───────────────────────────────────────┘
+
+
+┌───────────────────────────────────────┐
+│        Inference &amp; Deployment         │
+└───────────────────────────────────────┘
+        │
+        ▼
+┌───────────────────────────────────────┐
+│ Optional: Best-of-n Reranking         │
+│ • Sample n answers with policy π*     │
+│ • Score each answer with reward model │
+│ • Select best answer based on score   │
+└───────────────────────────────────────┘</pre>
+                        </div>
+                        
+                        <ul>
+                            <li>In Phase I (Model Building), human operators first generated state-action demonstrations through the text-based browser. These demonstrations were then used to perform behavior cloning (supervised learning), resulting in an initial policy π₀. Subsequently, human annotators compared pairs of answers to train a Reward Model (RM), enabling automatic evaluation of answer quality for RL training.</li>
+                            <li>Phase II (Reinforcement Learning) started from the initial policy π₀ and employed PPO to iteratively optimize the model's behavior within the simulated browser environment, eventually yielding the refined policy π*. Finally, during the Inference and Deployment phase, test-time scaling was applied: multiple candidate answers were generated, re-ranked using the RM, and the best answer was selected for output.</li>
+                        </ul>
+                        
+                        <p>It's still unclear whether having LLMs directly mimic human browser usage is the optimal approach for information retrieval. However, leveraging reinforcement learning to enable LLMs to autonomously develop search strategies is undoubtedly innovative. Fundamentally, this approach explores how RL can empower LLMs to perform tasks that extend beyond their pre-trained knowledge.</p>
+                        
+                        <h2>Recent Developments in LLM-Based Search</h2>
+                        
+                        <p>The field has evolved significantly since WebGPT, with two primary approaches emerging for enhancing LLM search capabilities:</p>
+                        
+                        <h3>1. Framework-Driven Methods with RAG</h3>
+                        
+                        <p>These approaches rely on structured frameworks and retrieval-augmented generation to enhance search capabilities. Examples include Search-o1, which uses a predefined framework to guide the search process and integrate external knowledge.</p>
+                        
+                        <div class="image-container">
+                            <img src="../assets/images/blog/rl-llm-performance-chart.png" alt="Performance comparison of models on Bamboogle dataset" class="blog-image">
+                            <p class="image-caption">Figure 1: Performance comparison of models on the Bamboogle dataset, showing the superiority of RL-based approaches.</p>
+                        </div>
+                        
+                        <h3>2. RL-Based Methods</h3>
+                        
+                        <p>These approaches use reinforcement learning to enable models to autonomously develop and refine search strategies. The model learns to use tools proactively and efficiently through trial and error, guided by reward signals.</p>
+                        
+                        <div class="image-container">
+                            <img src="../assets/images/blog/rl-sft-comparison-table.png" alt="Performance comparison of Qwen and Llama models trained using RL and SFT" class="blog-image">
+                            <p class="image-caption">Table 1: Performance comparison of Qwen and Llama models trained using RL vs. SFT on three multi-hop QA benchmarks.</p>
+                        </div>
+                        
+                        <p>As shown in the table above, models trained with RL consistently outperform their SFT counterparts across multiple benchmarks. This demonstrates the power of reinforcement learning in enhancing LLM capabilities for complex tasks.</p>
+                        
+                        <h2>Self-Correction Through Reflection</h2>
+                        
+                        <p>One of the most impressive capabilities unlocked by RL is the ability for models to reflect on their own outputs and self-correct. This is particularly valuable in search contexts, where initial queries might not yield optimal results.</p>
+                        
+                        <div class="image-container">
+                            <img src="../assets/images/blog/search-correction-example.png" alt="Example of a model self-correcting its search query" class="blog-image">
+                            <p class="image-caption">Figure 2: Example of a model recognizing an error in its search query and planning to refine it.</p>
+                        </div>
+                        
+                        <p>In the example above, the model realizes it made a mistake in its search query and plans to modify it to get more accurate information. This kind of self-correction is a direct result of reinforcement learning, where the model learns to optimize its behavior based on feedback.</p>
+                        
+                        <h2>Conclusion</h2>
+                        
+                        <p>Reinforcement learning is proving to be a transformative approach for enhancing LLM capabilities, particularly in search and tool use contexts. By enabling models to learn autonomously through trial and error, RL unlocks abilities that go beyond what's possible with supervised fine-tuning alone.</p>
+                        
+                        <p>As we continue to refine these techniques, we can expect even more impressive capabilities from LLM agents, bringing us closer to truly helpful AI assistants that can navigate the complexities of real-world information retrieval and problem-solving.</p>
+                    </div>
+                    
+                    <!-- Post Navigation -->
+                    <div class="post-navigation">
+                        <div class="prev-post">
+                            <a href="restaurant-deepresearch.html">← Restaurant DeepResearch</a>
+                        </div>
+                        <div class="next-post">
+                            <!-- No next post yet -->
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Yang Li. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="../assets/js/main.js"></script>
+</body>
+</html>
