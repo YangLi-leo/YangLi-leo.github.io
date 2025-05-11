@@ -11,12 +11,14 @@
 /* ===== Dark Mode Overrides ===== */
 [data-theme="dark"] {
   /* Text colors */
-  --blog-text-color: var(--color-text-primary);
-  --blog-text-secondary: var(--color-text-secondary);
+  --blog-text-color: #f0f0f0;
+  --blog-text-secondary: #a0a0a0;
   --blog-link-color: var(--color-accent);
   --blog-link-hover: var(--color-accent-hover);
   --blog-code-background: #2d2d2d;
-  --blog-code-text: #f0f0f0;
+  --blog-code-color: #f0f0f0;
+  --blog-pre-background: #2a2a2a;
+  --blog-pre-border: #444;
   --blog-blockquote-border: #444;
   --blog-blockquote-background: #222;
 }
@@ -78,13 +80,13 @@
   margin-bottom: var(--spacing-xs);
   font-weight: 600;
   letter-spacing: -0.022em;
-  color: rgba(0, 0, 0, 0.9);
+  color: var(--blog-text-color);
 }
 
 .post-meta {
   display: flex;
   align-items: center;
-  color: rgba(55, 53, 47, 0.65);
+  color: var(--blog-text-secondary);
   font-size: 0.9rem;
   margin-bottom: var(--spacing-sm);
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
@@ -96,14 +98,14 @@
 
 .post-excerpt {
   margin-bottom: var(--spacing-sm);
-  color: rgba(55, 53, 47, 0.8);
+  color: var(--blog-text-secondary);
   line-height: 1.5;
 }
 
 .post-read-more {
   font-weight: 500;
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  color: var(--blog-link-color, rgba(55, 53, 47, 0.75));
+  color: var(--blog-link-color);
 }
 
 /* ===== Single Blog Post ===== */
@@ -116,12 +118,13 @@
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   line-height: 1.5; /* Reduced from 1.6 for more compact text */
   font-size: 15px; /* Reduced from 16px */
-  color: var(--blog-text-color, rgba(0, 0, 0, 0.8));
+  color: var(--blog-text-color);
   letter-spacing: -0.011em;
 }
 
 .post-content p {
   margin-bottom: 1em; /* Reduced from 1.2em for more compact spacing */
+  color: var(--blog-text-color);
 }
 
 .post-content h2 {
@@ -130,7 +133,7 @@
   font-size: 1.6em; /* Reduced from 1.8em */
   font-weight: 600;
   letter-spacing: -0.022em;
-  color: var(--blog-text-color, rgba(0, 0, 0, 0.9));
+  color: var(--blog-text-color);
 }
 
 .post-content h3 {
@@ -139,7 +142,7 @@
   font-size: 1.3em; /* Reduced from 1.4em */
   font-weight: 600;
   letter-spacing: -0.022em;
-  color: var(--blog-text-color, rgba(0, 0, 0, 0.9));
+  color: var(--blog-text-color);
 }
 
 .post-content ul,
@@ -155,7 +158,7 @@
 .post-content img {
   margin: 1em auto; /* Reduced from 1.5em */
   border-radius: 8px;
-  box-shadow: rgba(15, 15, 15, 0.1) 0px 0px 0px 1px, rgba(15, 15, 15, 0.1) 0px 2px 4px;
+  box-shadow: 0 0 0 1px rgba(15, 15, 15, 0.1), 0 2px 4px rgba(15, 15, 15, 0.1);
   display: block;
   max-width: 50%; /* Further reduced from 60% to make images smaller */
   width: auto;
@@ -170,32 +173,32 @@
 }
 
 .post-content blockquote {
-  border-left: 3px solid var(--blog-blockquote-border, rgba(55, 53, 47, 0.16));
+  border-left: 3px solid var(--blog-blockquote-border);
   padding-left: 1em;
   margin: 1em 0; /* Reduced from 1.5em */
   font-style: normal;
-  color: var(--blog-text-secondary, rgba(55, 53, 47, 0.6));
-  background-color: var(--blog-blockquote-background, transparent);
+  color: var(--blog-text-secondary);
+  background-color: var(--blog-blockquote-background);
   padding: 0.5em 1em;
   border-radius: 4px;
 }
 
 .post-content code {
   font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
-  background-color: var(--blog-code-background, rgba(135, 131, 120, 0.15));
+  background-color: var(--blog-code-background);
   padding: 0.2em 0.4em;
   border-radius: 3px;
   font-size: 0.9em;
-  color: var(--blog-code-color, #eb5757);
+  color: var(--blog-code-color);
 }
 
 .post-content pre {
-  background-color: var(--blog-pre-background, rgba(247, 246, 243, 0.7));
+  background-color: var(--blog-pre-background);
   padding: 0.8em; /* Reduced from 1em */
   border-radius: 4px;
   overflow-x: auto;
   margin: 1em 0; /* Reduced from 1.5em */
-  border: 1px solid var(--blog-pre-border, rgba(233, 233, 231, 1));
+  border: 1px solid var(--blog-pre-border);
 }
 
 /* Smaller flowchart style for WebGPT diagram */
@@ -215,7 +218,7 @@
 .post-content pre code {
   background-color: transparent;
   padding: 0;
-  color: var(--blog-text-color, rgba(55, 53, 47, 0.7));
+  color: var(--blog-text-color);
 }
 
 /* ===== Post Navigation ===== */
@@ -325,7 +328,7 @@
 
 .tool-message .message-content {
   background-color: var(--color-background-secondary);
-  color: var(--blog-text-color, var(--color-text-primary));
+  color: var(--blog-text-color);
   border-radius: 12px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
 }
@@ -337,7 +340,7 @@
   font-size: 1.4rem;
   margin-top: var(--spacing-md);
   margin-bottom: var(--spacing-sm);
-  color: var(--blog-text-color, var(--color-text-primary));
+  color: var(--blog-text-color);
 }
 
 .perplexity-content h3,
@@ -346,7 +349,7 @@
   font-size: 1.2rem;
   margin-top: var(--spacing-md);
   margin-bottom: var(--spacing-xs);
-  color: var(--blog-text-color, var(--color-text-primary));
+  color: var(--blog-text-color);
 }
 
 .perplexity-content h4,
@@ -355,7 +358,7 @@
   font-size: 1.1rem;
   margin-top: var(--spacing-sm);
   margin-bottom: var(--spacing-xs);
-  color: var(--blog-text-color, var(--color-text-primary));
+  color: var(--blog-text-color);
 }
 
 .perplexity-content p,
@@ -408,7 +411,7 @@
 }
 
 .comparison-table tr:nth-child(even) {
-  background-color: rgba(0, 0, 0, 0.02);
+  background-color: var(--color-background-secondary);
 }
 
 @media (max-width: 768px) {
@@ -437,7 +440,7 @@
 .github-repo-icon {
   font-size: 2.5rem;
   margin-right: 20px;
-  color: var(--blog-text-color, var(--color-text-primary));
+  color: var(--blog-text-color);
 }
 
 .github-repo-content {
@@ -447,18 +450,18 @@
 .github-repo-title {
   font-size: 1.4rem;
   margin: 0 0 10px 0;
-  color: var(--blog-link-color, var(--color-accent));
+  color: var(--blog-link-color);
 }
 
 .github-repo-description {
   margin: 0 0 15px 0;
-  color: var(--blog-text-secondary, var(--color-text-secondary));
+  color: var(--blog-text-secondary);
 }
 
 .github-repo-button {
   display: inline-block;
   background-color: var(--color-accent);
-  color: white;
+  color: var(--color-text-on-accent, white);
   padding: 8px 16px;
   border-radius: 6px;
   font-weight: 500;
@@ -569,7 +572,7 @@
   padding: var(--spacing-xs);
   border-radius: 6px;
   transition: all 0.2s ease;
-  color: var(--blog-text-color, var(--color-text-primary));
+  color: var(--blog-text-color);
 }
 
 .sidebar-categories a:hover,
@@ -592,7 +595,7 @@
   padding: var(--spacing-xs);
   border-radius: 6px;
   transition: all 0.2s ease;
-  color: var(--blog-text-color, var(--color-text-primary));
+  color: var(--blog-text-color);
 }
 
 .sidebar-post:hover,
@@ -639,7 +642,7 @@
   padding: 0.5rem 1rem;
   border-radius: 100px;
   background-color: var(--color-background-secondary);
-  color: var(--blog-text-color, var(--color-text-primary));
+  color: var(--blog-text-color);
   font-size: 0.9rem;
   font-weight: 500;
   transition: all 0.2s ease;
@@ -652,7 +655,7 @@
 
 .category-pill.active {
   background-color: var(--color-accent);
-  color: white;
+  color: var(--color-text-on-accent, white);
 }
 
 /* ===== Post Categories ===== */
@@ -667,13 +670,13 @@
   padding: 0.2rem 0.5rem;
   border-radius: 4px;
   background-color: var(--color-background-secondary);
-  color: var(--blog-text-secondary, var(--color-text-secondary));
+  color: var(--blog-text-secondary);
   transition: all 0.2s ease;
 }
 
 .post-category:hover {
   background-color: var(--color-accent);
-  color: white;
+  color: var(--color-text-on-accent, white);
 }
 
 /* ===== Blog Pagination ===== */
@@ -707,7 +710,7 @@
 
 .pagination-item.current {
   background-color: var(--color-accent);
-  color: white;
+  color: var(--color-text-on-accent, white);
 }
 
 .pagination-separator {
