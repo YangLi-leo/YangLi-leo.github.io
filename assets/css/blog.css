@@ -1,4 +1,4 @@
-/* 
+/*
  * Blog-specific CSS for Yang Li's GitHub Pages
  * Apple-inspired design with clean aesthetics and responsive layout
  */
@@ -283,7 +283,7 @@
   margin-bottom: var(--spacing-sm);
 }
 
-.perplexity-content ul, 
+.perplexity-content ul,
 .perplexity-content ol,
 .google-content ul,
 .google-content ol,
@@ -334,7 +334,7 @@
   .comparison-table {
     font-size: 0.9rem;
   }
-  
+
   .comparison-table th,
   .comparison-table td {
     padding: var(--spacing-xs);
@@ -400,30 +400,279 @@
   .blog-title {
     font-size: 2rem;
   }
-  
+
   .post-title {
     font-size: 1.5rem;
   }
-  
+
   .post-meta {
     flex-direction: column;
     align-items: flex-start;
   }
-  
+
   .post-date {
     margin-right: 0;
     margin-bottom: var(--spacing-xs);
   }
-  
+
   .comparison-window {
     min-height: 400px;
   }
-  
+
   .comparison-title {
     font-size: 1rem;
   }
-  
+
   .message-content {
     padding: var(--spacing-sm);
   }
+}
+
+/* ===== Blog Sidebar Layout ===== */
+.blog-container.with-sidebar {
+  display: grid;
+  grid-template-columns: 250px 1fr;
+  gap: var(--spacing-lg);
+  max-width: 1100px; /* Increased for sidebar */
+}
+
+.blog-sidebar {
+  position: sticky;
+  top: var(--spacing-md);
+  height: fit-content;
+  padding: var(--spacing-md);
+  background-color: var(--color-background);
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  border: 1px solid var(--color-border);
+}
+
+.sidebar-section {
+  margin-bottom: var(--spacing-md);
+}
+
+.sidebar-section h3 {
+  font-size: 1.2rem;
+  margin-bottom: var(--spacing-sm);
+  padding-bottom: var(--spacing-xs);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.sidebar-categories {
+  list-style: none;
+}
+
+.sidebar-categories li {
+  margin-bottom: var(--spacing-xs);
+}
+
+.sidebar-categories a {
+  display: block;
+  padding: var(--spacing-xs);
+  border-radius: 6px;
+  transition: all 0.2s ease;
+  color: var(--color-text-primary);
+}
+
+.sidebar-categories a:hover,
+.sidebar-categories a.active {
+  background-color: var(--color-background-secondary);
+  color: var(--color-accent);
+}
+
+.sidebar-posts {
+  list-style: none;
+}
+
+.sidebar-posts li {
+  margin-bottom: var(--spacing-xs);
+}
+
+.sidebar-post {
+  display: flex;
+  flex-direction: column;
+  padding: var(--spacing-xs);
+  border-radius: 6px;
+  transition: all 0.2s ease;
+  color: var(--color-text-primary);
+}
+
+.sidebar-post:hover,
+.sidebar-post.active {
+  background-color: var(--color-background-secondary);
+  color: var(--color-accent);
+}
+
+.sidebar-post-title {
+  font-weight: 500;
+}
+
+.sidebar-post-date {
+  font-size: 0.8rem;
+  color: var(--color-text-secondary);
+}
+
+/* Responsive adjustments for sidebar */
+@media (max-width: 900px) {
+  .blog-container.with-sidebar {
+    grid-template-columns: 1fr;
+  }
+  
+  .blog-sidebar {
+    position: static;
+    margin-bottom: var(--spacing-md);
+  }
+}
+
+/* ===== Blog Categories ===== */
+.blog-categories {
+  margin-bottom: var(--spacing-md);
+}
+
+.category-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-xs);
+  margin-bottom: var(--spacing-md);
+}
+
+.category-pill {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  border-radius: 100px;
+  background-color: var(--color-background-secondary);
+  color: var(--color-text-primary);
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.category-pill:hover {
+  background-color: var(--color-border);
+  transform: translateY(-2px);
+}
+
+.category-pill.active {
+  background-color: var(--color-accent);
+  color: white;
+}
+
+/* ===== Post Categories ===== */
+.post-categories {
+  display: flex;
+  gap: var(--spacing-xs);
+  margin-left: var(--spacing-sm);
+}
+
+.post-category {
+  font-size: 0.8rem;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  background-color: var(--color-background-secondary);
+  color: var(--color-text-secondary);
+  transition: all 0.2s ease;
+}
+
+.post-category:hover {
+  background-color: var(--color-accent);
+  color: white;
+}
+
+/* ===== Blog Pagination ===== */
+.blog-pagination {
+  margin-top: var(--spacing-lg);
+  display: flex;
+  justify-content: center;
+}
+
+.pagination {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+}
+
+.pagination-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.pagination-item:not(.current):hover {
+  background-color: var(--color-background-secondary);
+  transform: translateY(-2px);
+}
+
+.pagination-item.current {
+  background-color: var(--color-accent);
+  color: white;
+}
+
+.pagination-separator {
+  margin: 0 0.5rem;
+}
+
+/* ===== Blog Search ===== */
+.blog-search {
+  margin-bottom: var(--spacing-md);
+}
+
+.search-form {
+  display: flex;
+  width: 100%;
+}
+
+.search-input {
+  flex: 1;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--color-border);
+  border-radius: 8px 0 0 8px;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.search-input:focus {
+  border-color: var(--color-accent);
+}
+
+.search-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  background-color: var(--color-accent);
+  color: white;
+  border: none;
+  border-radius: 0 8px 8px 0;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.search-button:hover {
+  background-color: var(--color-accent-hover);
+}
+
+.no-results-message {
+  text-align: center;
+  padding: var(--spacing-md);
+  color: var(--color-text-secondary);
+  font-style: italic;
+}
+
+/* Utility class for screen readers */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
 }

@@ -40,4 +40,72 @@ document.addEventListener('DOMContentLoaded', () => {
   
   // Run once on page load
   animateOnScroll();
+  
+  const searchForm = document.querySelector('.search-form');
+  const searchInput = document.querySelector('.search-input');
+  const postList = document.querySelector('.post-list');
+  const postItems = document.querySelectorAll('.post-item');
+
+  if (searchForm && searchInput && postList) {
+    const urlParams = new URLSearchParams(window.location.search);
+    const searchParam = urlParams.get('search');
+    
+    if (searchParam) {
+      searchInput.value = searchParam;
+      filterPosts(searchParam);
+    }
+    
+    searchForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const searchValue = searchInput.value.toLowerCase();
+      filterPosts(searchValue);
+      
+      const newUrl = window.location.pathname + '?search=' + encodeURIComponent(searchValue);
+      window.history.pushState({ path: newUrl }, '', newUrl);
+    });
+    
+    searchInput.addEventListener('input', function() {
+      const searchValue = searchInput.value.toLowerCase();
+      filterPosts(searchValue);
+    });
+  }
+  
+  function filterPosts(searchValue) {
+    const postItems = document.querySelectorAll('.post-item');
+    let hasResults = false;
+    
+    postItems.forEach(item => {
+      const title = item.querySelector('.post-title').textContent.toLowerCase();
+      const excerpt = item.querySelector('.post-excerpt').textContent.toLowerCase();
+      const categories = item.querySelectorAll('.post-category');
+      
+      let categoryMatch = false;
+      if (categories.length > 0) {
+        categories.forEach(category => {
+          if (category.textContent.toLowerCase().includes(searchValue)) {
+            categoryMatch = true;
+          }
+        });
+      }
+      
+      if (title.includes(searchValue) || excerpt.includes(searchValue) || categoryMatch) {
+        item.style.display = 'block';
+        hasResults = true;
+      } else {
+        item.style.display = 'none';
+      }
+    });
+    
+    let noResultsMsg = document.querySelector('.no-results-message');
+    if (!hasResults) {
+      if (!noResultsMsg) {
+        const message = document.createElement('li');
+        message.classList.add('no-results-message');
+        message.textContent = 'No posts found matching your search.';
+        postList.appendChild(message);
+      }
+    } else if (noResultsMsg) {
+      noResultsMsg.remove();
+    }
+  }
 });

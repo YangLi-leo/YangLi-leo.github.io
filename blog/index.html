@@ -44,16 +44,39 @@
                 <p class="blog-description">Thoughts, tutorials, and insights on technology and development</p>
             </header>
 
+            <!-- Blog Categories -->
+            <section class="blog-categories animate-on-scroll">
+                <h2 class="visually-hidden">Categories</h2>
+                <div class="category-pills">
+                    <a href="#" class="category-pill active">All</a>
+                    <a href="#" class="category-pill">AI</a>
+                    <a href="#" class="category-pill">Web Development</a>
+                    <a href="#" class="category-pill">Projects</a>
+                    <a href="#" class="category-pill">Tutorials</a>
+                </div>
+            </section>
+
+            <!-- Blog Search -->
+            <section class="blog-search animate-on-scroll">
+                <form class="search-form" action="index.html" method="get">
+                    <input type="text" class="search-input" placeholder="Search blog posts..." name="search">
+                    <button type="submit" class="search-button"><i class="fas fa-search"></i></button>
+                </form>
+            </section>
+
             <!-- Blog Posts -->
             <section class="animate-on-scroll">
                 <ul class="post-list">
-
                     <li class="post-item">
                         <h2 class="post-title">
                             <a href="restaurant-deepresearch.html">Restaurant DeepResearch: Creating a Multi-Agent System Inspired by Real-Life Decision-Making</a>
                         </h2>
                         <div class="post-meta">
                             <span class="post-date">April 11, 2025</span>
+                            <span class="post-categories">
+                                <a href="#" class="post-category">AI</a>
+                                <a href="#" class="post-category">Projects</a>
+                            </span>
                         </div>
                         <div class="post-excerpt">
                             <p>Learn about building a multi-agent system using MCP servers to help find great restaurants through AI-powered research and decision-making that mimics human conversations.</p>
@@ -61,7 +84,20 @@
                         <a href="restaurant-deepresearch.html" class="post-read-more">Read more →</a>
                     </li>
                     <!-- Additional blog posts would be added here -->
+                    
+                    <!-- No results message will be inserted here by JavaScript -->
                 </ul>
+            </section>
+
+            <!-- Blog Pagination -->
+            <section class="blog-pagination animate-on-scroll">
+                <div class="pagination">
+                    <span class="pagination-item current">1</span>
+                    <a href="#" class="pagination-item">2</a>
+                    <a href="#" class="pagination-item">3</a>
+                    <span class="pagination-separator">...</span>
+                    <a href="#" class="pagination-item">Next →</a>
+                </div>
             </section>
         </div>
     </main>
