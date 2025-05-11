@@ -170,6 +170,20 @@
   border: 1px solid rgba(233, 233, 231, 1);
 }
 
+/* Smaller flowchart style for WebGPT diagram */
+.flowchart-small {
+  font-size: 0.6em; /* Further reduce font size */
+  max-width: 70%; /* Further limit width */
+  margin: 1em auto; /* Center and add margin */
+  overflow-x: auto; /* Allow horizontal scrolling if needed */
+}
+
+.flowchart-small pre {
+  white-space: pre; /* Preserve formatting */
+  line-height: 1.1; /* Even tighter line spacing */
+  padding: 0.6em; /* Reduce padding */
+}
+
 .post-content pre code {
   background-color: transparent;
   padding: 0;
