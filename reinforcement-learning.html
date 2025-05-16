@@ -351,7 +351,7 @@
                 
                 <p>This paper sets the foundational tone for most of the subsequent research. Let's first understand its core logic step-by-step through the provided workflow diagram. Notably, it does not provide supervised data for the reasoning steps. Instead, it leverages reinforcement learning (specifically GRPO) to encourage the model to autonomously reason with integrated search actions.</p>
                 
-                <p><img src="https://page1.genspark.site/v1/base64_upload/1f086b8164a080b1a61be736044abe40/LUM_Policy__E.png" alt="LUM Policy  E.png"></p>
+                <p><img src="assets/images/blog/LUM_Policy__E.png" alt="LUM Policy  E.png"></p>
                 
                 <p>Because of the GRPO method, each question triggers multiple sampled trajectories (rollouts) that interleave &lt;think&gt; and &lt;search&gt; tags. Whenever the model encounters a &lt;/search&gt; tag, it performs a retrieval action, and the retrieved results are incorporated back into the reasoning chain. This iterative Think ↔ Search loop continues until an &lt;answer&gt; is produced, making search genuinely intertwined with reasoning, rather than merely appending search results. By iteratively performing sampling, scoring, and updating through GRPO until convergence, the policy eventually learns when to search, what to search for, and how to effectively utilize retrieved information, entirely without human-annotated search examples.</p>
                 
@@ -363,7 +363,7 @@
                     <li>After reinforcement learning, models naturally identify and correct mistakes, enabling self-driven re-searching.</li>
                 </ul>
                 
-                <p><img src="https://page1.genspark.site/v1/base64_upload/1f086b8164a080b1a61be736044abe40/Screen_Shot_2025-05-10_at_21.44.52_PM.png" alt="Screen Shot 2025-05-10 at 21.44.52 PM.png"></p>
+                <p><img src="assets/images/blog/Screen_Shot_2025-05-10_at_21.44.52_PM.png" alt="Screen Shot 2025-05-10 at 21.44.52 PM.png"></p>
                 
                 <ul>
                     <li>Even though the model was exclusively trained on the <em>MuSiQue</em> dataset, it generalizes remarkably well across multiple test sets, indicating the broad applicability of the ReSearch framework.</li>
@@ -400,13 +400,13 @@
                     <li>Compared to purely supervised fine-tuned (SFT) models, RL-trained models tend to call external search tools more proactively when unsure about answers, whereas SFT models rely heavily on their inherent knowledge—even at the risk of providing incorrect responses.</li>
                 </ul>
                 
-                <p><img src="https://page1.genspark.site/v1/base64_upload/1f086b8164a080b1a61be736044abe40/Screen_Shot_2025-05-10_at_23.46.19_PM.png" alt="Screen Shot 2025-05-10 at 23.46.19 PM.png"></p>
+                <p><img src="assets/images/blog/Screen_Shot_2025-05-10_at_23.46.19_PM.png" alt="Screen Shot 2025-05-10 at 23.46.19 PM.png"></p>
                 
                 <ul>
                     <li>Remarkably, although the R1-Searcher was trained only on a local Wikipedia corpus, when evaluated on the completely unseen Bamboogle dataset using live Google API calls, the online Qwen-Base-RL achieved a +18.2% improvement in CEM over local retrieval and outperformed the 32B Search-o1 model by +11.4%. The fact that R1-Searcher surpasses Search-o1 is particularly noteworthy. Search-o1 is an agentic RAG method combined with reason-in-documents (primarily at inference), suggesting that RL-driven approaches can outperform carefully hand-crafted frameworks.</li>
                 </ul>
                 
-                <p><img src="https://page1.genspark.site/v1/base64_upload/1f086b8164a080b1a61be736044abe40/Screen_Shot_2025-05-10_at_22.40.05_PM.png" alt="Screen Shot 2025-05-10 at 22.40.05 PM.png"></p>
+                <p><img src="assets/images/blog/Screen_Shot_2025-05-10_at_22.40.05_PM.png" alt="Screen Shot 2025-05-10 at 22.40.05 PM.png"></p>
                 
                 <aside>
                 👀 However, both ReSearch and R1-Searcher share a common limitation highlighted in the papers: <em>These methods typically employ static, local textual corpora such as Wikipedia and fail to capture the complexities of real-world interactions.</em><br><br>This indicates uncertainty regarding their performance in real-world scenarios and emphasizes the need to establish new, more realistic benchmarks for evaluating LLM search capabilities.
