@@ -26,24 +26,7 @@
     --code-font: 'Fira Code', 'Source Code Pro', monospace;
 }
 
-/* Light Python Theme */
-[data-theme="light"] {
-    --bg-color: #f9f9f9;
-    --text-color: #24292e;
-    --comment-color: #6a737d;
-    --keyword-color: #d73a49;
-    --function-color: #6f42c1;
-    --string-color: #032f62;
-    --number-color: #005cc5;
-    --class-color: #22863a;
-    --constant-color: #005cc5;
-    --parameter-color: #24292e;
-    --operator-color: #24292e;
-    --line-number-color: #6a737d;
-    --card-bg: #ffffff;
-    --card-border: #e1e4e8;
-    --highlight-bg: #f1f8ff;
-}
+/* Dark Python Theme Only */
 
 /* Apply Python Theme to Base Elements */
 body {
@@ -152,14 +135,60 @@ body {
 .card-container {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto auto;
     gap: 1.5rem;
     margin: 2rem 0;
+}
+
+/* Ensure specific card ordering in 2x2 grid */
+.card-container .ai-projects {
+    grid-column: 1;
+    grid-row: 1;
+}
+
+.card-container .paper-reading {
+    grid-column: 2;
+    grid-row: 1;
+}
+
+.card-container .tutorials {
+    grid-column: 1;
+    grid-row: 2;
+}
+
+.card-container .research {
+    grid-column: 2;
+    grid-row: 2;
 }
 
 /* Responsive: Single column on mobile */
 @media (max-width: 768px) {
     .card-container {
         grid-template-columns: 1fr;
+        grid-template-rows: auto;
+    }
+    
+    .card-container .ai-projects,
+    .card-container .paper-reading,
+    .card-container .tutorials,
+    .card-container .research {
+        grid-column: 1;
+    }
+    
+    .card-container .ai-projects {
+        grid-row: 1;
+    }
+    
+    .card-container .paper-reading {
+        grid-row: 2;
+    }
+    
+    .card-container .tutorials {
+        grid-row: 3;
+    }
+    
+    .card-container .research {
+        grid-row: 4;
     }
 }
 
