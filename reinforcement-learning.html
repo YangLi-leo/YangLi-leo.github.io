@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How Reinforcement Learning Unlocks LLM Agents Capabilities - Yang Li</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/main.css">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <!-- Fira Code Font -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fira-code@6.2.0/distr/fira_code.css">
+    
+    <style>
+        /* Custom styles */
+        body {
+            font-family: 'Fira Code', 'Source Code Pro', monospace;
+            background-color: #1e1e1e;
+            color: #d4d4d4;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+        
+        .keyword {
+            color: #569cd6;
+        }
+        
+        .function {
+            color: #dcdcaa;
+        }
+        
+        .comment {
+            color: #6a9955;
+            font-style: italic;
+        }
+        
+        .string {
+            color: #ce9178;
+        }
+        
+        .class {
+            color: #4ec9b0;
+        }
+        
+        .blog-content {
+            background-color: #252526;
+            border-radius: 0.375rem;
+            padding: 2rem;
+            margin: 2rem 0;
+            border-left: 3px solid #569cd6;
+        }
+        
+        .blog-content h1, .blog-content h2, .blog-content h3 {
+            color: #4ec9b0;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .blog-content h1 {
+            font-size: 1.8rem;
+            border-bottom: 1px solid #333;
+            padding-bottom: 0.5rem;
+        }
+        
+        .blog-content h2 {
+            font-size: 1.5rem;
+        }
+        
+        .blog-content h3 {
+            font-size: 1.25rem;
+            color: #dcdcaa;
+        }
+        
+        .blog-content p {
+            margin-bottom: 1.5rem;
+        }
+        
+        .blog-content a {
+            color: #569cd6;
+            text-decoration: none;
+        }
+        
+        .blog-content a:hover {
+            text-decoration: underline;
+        }
+        
+        .blog-content code {
+            background-color: #1e1e1e;
+            padding: 0.2rem 0.4rem;
+            border-radius: 3px;
+            font-family: 'Fira Code', monospace;
+        }
+        
+        .blog-content pre {
+            background-color: #1e1e1e;
+            padding: 1rem;
+            border-radius: 5px;
+            overflow-x: auto;
+            margin-bottom: 1.5rem;
+        }
+        
+        .blog-content blockquote {
+            border-left: 3px solid #569cd6;
+            padding-left: 1rem;
+            margin-left: 0;
+            color: #a0a0a0;
+        }
+        
+        .blog-content ul, .blog-content ol {
+            margin-bottom: 1.5rem;
+            padding-left: 2rem;
+        }
+        
+        .blog-content li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .blog-image {
+            max-width: 100%;
+            height: auto;
+            margin: 2rem 0;
+            border-radius: 5px;
+            border: 1px solid #333;
+        }
+        
+        .blog-meta {
+            margin-bottom: 2rem;
+            color: #a0a0a0;
+            font-size: 0.9rem;
+        }
+        
+        .blog-meta .date {
+            color: #6a9955;
+        }
+        
+        .blog-meta .author {
+            color: #dcdcaa;
+        }
+        
+        .tag-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .tag {
+            background-color: #2d2d2d;
+            color: #569cd6;
+            padding: 0.25rem 0.75rem;
+            border-radius: 3px;
+            font-size: 0.8rem;
+            border: 1px solid #444;
+        }
+        
+        aside {
+            background-color: #2d2d2d;
+            border-left: 3px solid #ce9178;
+            padding: 1rem;
+            margin: 1.5rem 0;
+            font-style: italic;
+        }
+        
+        .line-numbers {
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 30px;
+            text-align: right;
+            color: #6e7681;
+            user-select: none;
+            background-color: #252526;
+            border-right: 1px solid #333;
+            padding-top: 1rem;
+            padding-right: 0.5rem;
+        }
+        
+        .with-line-numbers {
+            margin-left: 40px;
+            padding-left: 1rem;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 3rem;
+            border-top: 1px solid #333;
+        }
+        
+        .footer-content {
+            color: #6a9955;
+        }
+        
+        .back-link {
+            display: inline-block;
+            margin-bottom: 2rem;
+            color: #dcdcaa;
+            text-decoration: none;
+        }
+        
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <a href="index.html" class="nav-logo">
+                    <span class="keyword">import</span> <span class="function">YangLi</span>
+                </a>
+                <div class="nav-social-icons">
+                    <a href="mailto:liyangauthority@gmail.com" aria-label="Email">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                    <a href="https://github.com/YangLi-leo" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://x.com/YangLi_leo" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/yanglileo25" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                </div>
+                <button class="nav-toggle" aria-label="Toggle navigation">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="content">
+        <div class="container">
+            <!-- Navigation Link -->
+            <a href="papers.html" class="back-link">
+                <span class="keyword">def</span> <span class="function">go_back</span>()<span class="operator">:</span> <span class="comment"># ← Return to Papers</span>
+            </a>
+            
+            <!-- Blog Post -->
+            <article class="blog-content">
+                <h1>How Reinforcement Learning Unlocks LLM Agents Capabilities</h1>
+                
+                <div class="blog-meta">
+                    <span class="date">May 11, 2025</span> • 
+                    <span class="author">Yang Li</span>
+                </div>
+                
+                <div class="tag-container">
+                    <span class="tag">Reinforcement Learning</span>
+                    <span class="tag">LLM</span>
+                    <span class="tag">AI Agents</span>
+                    <span class="tag">Search</span>
+                </div>
+                
+                <p>In recent years, large language models (LLMs) have demonstrated remarkable capabilities across various domains. However, their ability to perform search tasks effectively has been a significant challenge. This blog explores how reinforcement learning (RL) is being leveraged to enhance LLMs' search capabilities, focusing on three key papers: WebGPT, ReSearch, and R1-Searcher.</p>
+                
+                <h2>The Challenge of Search in LLMs</h2>
+                
+                <p>Traditional LLMs struggle with search tasks for several reasons:</p>
+                
+                <ul>
+                    <li>They rely on static knowledge from their training data</li>
+                    <li>They lack the ability to dynamically explore and gather information</li>
+                    <li>They often hallucinate or provide incomplete information when knowledge is missing</li>
+                </ul>
+                
+                <p>Reinforcement learning offers a promising solution by enabling LLMs to learn optimal search strategies through trial and error, guided by carefully designed reward functions.</p>
+                
+                <h2>WebGPT: Pioneering RL for Search</h2>
+                
+                <p>WebGPT, developed by OpenAI, was one of the first models to use reinforcement learning to enhance search capabilities. The model was trained to browse the web, find relevant information, and compose detailed answers to questions.</p>
+                
+                <img src="assets/images/LUM_Policy__E.png" alt="WebGPT Architecture" class="blog-image">
+                
+                <p>The key innovations in WebGPT include:</p>
+                
+                <ol>
+                    <li><strong>RL from Human Feedback (RLHF):</strong> Using human preferences to train a reward model</li>
+                    <li><strong>Web Browsing Environment:</strong> Creating a simulated environment where the model can search and navigate web pages</li>
+                    <li><strong>Iterative Training:</strong> Gradually improving search strategies through multiple rounds of feedback</li>
+                </ol>
+                
+                <p>WebGPT demonstrated that RL could significantly improve an LLM's ability to search for and synthesize information from the web, setting the foundation for future research in this area.</p>
+                
+                <h2>ReSearch: Enhancing Search with Self-Reflection</h2>
+                
+                <p>Building on WebGPT's foundation, ReSearch introduced a novel approach that incorporates self-reflection into the search process. This model was designed to iteratively refine its search strategy based on the results of previous searches.</p>
+                
+                <img src="assets/images/Screen_Shot_2025-05-10_at_21.44.52_PM.png" alt="ReSearch Architecture" class="blog-image">
+                
+                <p>The ReSearch architecture includes:</p>
+                
+                <ul>
+                    <li><strong>Self-Reflection Mechanism:</strong> Evaluating the quality and relevance of search results</li>
+                    <li><strong>Multi-Step Reasoning:</strong> Breaking down complex queries into manageable sub-queries</li>
+                    <li><strong>Adaptive Search Strategy:</strong> Modifying search approaches based on intermediate results</li>
+                </ul>
+                
+                <p>What makes ReSearch particularly interesting is its use of reinforcement learning to optimize the self-reflection process itself. The model learns not just how to search, but how to evaluate and improve its own search strategies.</p>
+                
+                <aside>
+                The paper demonstrates that self-reflection significantly improves search performance, with ReSearch outperforming baseline models by 23% on complex information-seeking tasks.
+                </aside>
+                
+                <h2>R1-Searcher: Optimizing Search Queries</h2>
+                
+                <p>The most recent advancement in this field is R1-Searcher, which focuses specifically on optimizing the formulation of search queries. This model uses reinforcement learning to generate effective search queries that maximize the retrieval of relevant information.</p>
+                
+                <img src="assets/images/Screen_Shot_2025-05-10_at_23.46.19_PM.png" alt="R1-Searcher Query Optimization" class="blog-image">
+                
+                <p>R1-Searcher introduces several innovations:</p>
+                
+                <ul>
+                    <li><strong>Query Optimization:</strong> Learning to generate queries that yield high-quality search results</li>
+                    <li><strong>Context-Aware Searching:</strong> Adapting search strategies based on the specific context and domain</li>
+                    <li><strong>Reward Shaping:</strong> Using sophisticated reward functions that consider both relevance and diversity of results</li>
+                </ul>
+                
+                <p>The reinforcement learning approach in R1-Searcher is particularly noteworthy for its use of a specialized reward function that balances exploration (finding diverse information) and exploitation (focusing on highly relevant results).</p>
+                
+                <h2>Comparative Analysis</h2>
+                
+                <p>When comparing these three approaches, we can observe a clear evolution in how reinforcement learning is applied to enhance search capabilities in LLMs:</p>
+                
+                <ul>
+                    <li><strong>WebGPT</strong> established the foundation by using RL to train models to navigate and extract information from the web</li>
+                    <li><strong>ReSearch</strong> built upon this by adding self-reflection mechanisms to iteratively improve search strategies</li>
+                    <li><strong>R1-Searcher</strong> focused specifically on optimizing the query formulation process</li>
+                </ul>
+                
+                <p>Each approach has its strengths and limitations, but together they demonstrate the significant potential of reinforcement learning in enhancing LLMs' search capabilities.</p>
+                
+                <img src="assets/images/Screen_Shot_2025-05-10_at_22.40.05_PM.png" alt="Comparative Performance" class="blog-image">
+                
+                <aside>
+                👀 However, both ReSearch and R1-Searcher share a common limitation highlighted in the papers: <em>These methods typically employ static, local textual corpora such as Wikipedia and fail to capture the complexities of real-world interactions.</em><br><br>This indicates uncertainty regarding their performance in real-world scenarios and emphasizes the need to establish new, more realistic benchmarks for evaluating LLM search capabilities.
+                </aside>
+                
+                <h2>Conclusion</h2>
+                
+                <p>This blog focuses primarily on sharing the latest architectures adopted by large language models (LLMs) when performing search tasks. Future posts will introduce even newer architectures. Although the architectures are becoming increasingly sophisticated, the underlying reinforcement learning algorithm remains GRPO; however, the innovative designs in reward functions deserve special attention. In subsequent blogs, we will specifically concentrate on discussing these reward function innovations.</p>
+                
+                <p>On one hand, we observe clear performance gains driven by architectural changes. On the other hand, I believe the detailed RL insights presented in these papers are even more crucial. From these examples, it's evident that reinforcement learning is highly effective in guiding models to autonomously explore optimal search strategies. Undoubtedly, this is a promising research direction, and we will continue to closely follow its developments.</p>
+            </article>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p class="footer-content">
+                <span class="comment"># © 2025 Yang Li. All rights reserved.</span><br>
+                <span class="comment"># Made with "Python-style CSS" and {<span class="string">❤️</span>: <span class="keyword">True</span>}</span>
+            </p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
