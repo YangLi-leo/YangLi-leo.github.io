@@ -5,8 +5,10 @@
 
 /* Import main styles */
 @import url('../css/main.css');
-/* Import Inter font for Notion-like style */
+/* Import fonts */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap');
 
 /* ===== Dark Mode Overrides ===== */
 [data-theme="dark"] {
@@ -59,7 +61,7 @@
 /* ===== Blog Post List ===== */
 .post-list {
   list-style: none;
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: 'JetBrains Mono', 'Fira Code', 'Source Code Pro', monospace;
 }
 
 .post-item {
@@ -73,11 +75,11 @@
 }
 
 .post-title {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: 'JetBrains Mono', 'Fira Code', 'Source Code Pro', monospace;
   font-size: 1.8rem;
   margin-bottom: var(--spacing-xs);
   font-weight: 600;
-  letter-spacing: -0.022em;
+  letter-spacing: 0;
   color: rgba(0, 0, 0, 0.9);
 }
 
@@ -87,7 +89,7 @@
   color: rgba(55, 53, 47, 0.65);
   font-size: 0.9rem;
   margin-bottom: var(--spacing-sm);
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: 'JetBrains Mono', 'Fira Code', 'Source Code Pro', monospace;
 }
 
 .post-date {
@@ -102,22 +104,22 @@
 
 .post-read-more {
   font-weight: 500;
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: 'JetBrains Mono', 'Fira Code', 'Source Code Pro', monospace;
   color: var(--blog-link-color, rgba(55, 53, 47, 0.75));
 }
 
 /* ===== Single Blog Post ===== */
 .post-header {
   margin-bottom: var(--spacing-md); /* Reduced from lg to md */
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: 'JetBrains Mono', 'Fira Code', 'Source Code Pro', monospace;
 }
 
 .post-content {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: 'JetBrains Mono', 'Fira Code', 'Source Code Pro', monospace;
   line-height: 1.5; /* Reduced from 1.6 for more compact text */
   font-size: 15px; /* Reduced from 16px */
   color: var(--blog-text-color, rgba(0, 0, 0, 0.8));
-  letter-spacing: -0.011em;
+  letter-spacing: 0; /* Adjusted for monospace font */
 }
 
 .post-content p {
@@ -157,10 +159,43 @@
   border-radius: 8px;
   box-shadow: rgba(15, 15, 15, 0.1) 0px 0px 0px 1px, rgba(15, 15, 15, 0.1) 0px 2px 4px;
   display: block;
-  max-width: 50%; /* Further reduced from 60% to make images smaller */
+  max-width: 60%; /* Adjusted for better visibility */
   width: auto;
   height: auto;
   transition: transform 0.2s ease;
+}
+
+/* Featured image styling */
+.post-featured-image {
+  margin: 2em 0;
+  text-align: center;
+}
+
+.featured-image {
+  max-width: 80%; /* Larger size for featured image */
+  border-radius: 8px;
+  box-shadow: rgba(15, 15, 15, 0.15) 0px 0px 0px 1px, rgba(15, 15, 15, 0.2) 0px 4px 8px;
+}
+
+/* Blog image container styling */
+.image-container {
+  margin: 2em 0;
+  text-align: center;
+}
+
+.blog-image {
+  max-width: 65%; /* Slightly larger than regular images */
+  border-radius: 8px;
+  box-shadow: rgba(15, 15, 15, 0.12) 0px 0px 0px 1px, rgba(15, 15, 15, 0.15) 0px 3px 6px;
+}
+
+/* Image caption styling */
+.image-caption {
+  font-size: 0.9rem;
+  color: var(--blog-text-secondary, rgba(55, 53, 47, 0.6));
+  text-align: center;
+  margin-top: 0.5em;
+  font-style: italic;
 }
 
 /* Add hover effect for images */
