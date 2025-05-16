@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paper Reading - Yang Li</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/main.css">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <!-- Fira Code Font -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fira-code@6.2.0/distr/fira_code.css">
+    
+    <style>
+        /* Custom styles */
+        body {
+            font-family: 'Fira Code', 'Source Code Pro', monospace;
+            background-color: #1e1e1e;
+            color: #d4d4d4;
+        }
+        
+        .keyword {
+            color: #569cd6;
+        }
+        
+        .function {
+            color: #dcdcaa;
+        }
+        
+        .comment {
+            color: #6a9955;
+            font-style: italic;
+        }
+        
+        .string {
+            color: #ce9178;
+        }
+        
+        .class {
+            color: #4ec9b0;
+        }
+        
+        .paper-card {
+            background-color: #252526;
+            border-radius: 0.375rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border-left: 3px solid #569cd6;
+            position: relative;
+        }
+        
+        .paper-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 7px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        .line-numbers {
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 30px;
+            text-align: right;
+            color: #6e7681;
+            user-select: none;
+            background-color: #252526;
+            border-right: 1px solid #333;
+        }
+        
+        .with-line-numbers {
+            margin-left: 40px;
+        }
+        
+        .future-papers {
+            border-left: 3px solid #6a9955;
+        }
+        
+        .nav-link:hover {
+            border-bottom: 1px solid #569cd6;
+        }
+        
+        .view-notes {
+            background-color: #2d2d2d;
+            color: #dcdcaa;
+            border: 1px solid #444;
+            transition: background-color 0.2s, color 0.2s;
+        }
+        
+        .view-notes:hover {
+            background-color: #3e3e3e;
+            color: #fff;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <a href="index.html" class="nav-logo">
+                    <span class="keyword">import</span> <span class="function">YangLi</span>
+                </a>
+                <div class="nav-social-icons">
+                    <a href="mailto:liyangauthority@gmail.com" aria-label="Email">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                    <a href="https://github.com/YangLi-leo" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://x.com/YangLi_leo" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/yanglileo25" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                </div>
+                <button class="nav-toggle" aria-label="Toggle navigation">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="content">
+        <div class="container">
+            <!-- Navigation Link -->
+            <a href="index.html" class="card-link back-link">
+                <span class="keyword">import</span> <span class="function">home</span> <span class="comment"># ← Back to Home</span>
+            </a>
+            
+            <!-- Page Title and Introduction -->
+            <section class="header-comment">
+                <div class="comment-line"># -------------------------------------------------------</div>
+                <div class="comment-line"># File: paper_reading.py</div>
+                <div class="comment-line"># Description: My notes and summaries from reading important papers</div>
+                <div class="comment-line"># in AI, ML, and computer science research.</div>
+                <div class="comment-line"># -------------------------------------------------------</div>
+            </section>
+            
+            <!-- Paper card -->
+            <section class="content-section">
+                <div class="section-header">
+                    <h2>
+                        <span class="keyword">class</span> 
+                        <span class="class">PaperReading</span><span class="operator">:</span>
+                    </h2>
+                </div>
+                
+                <!-- Paper Card -->
+                <div class="paper-card p-6 mt-8">
+                    <div class="line-numbers pt-6 px-2">
+                        1<br>2<br>3<br>4<br>5<br>6
+                    </div>
+                    <div class="with-line-numbers">
+                        <h2 class="text-xl font-normal mb-2">
+                            <span class="keyword">def</span> <span class="function">reinforcement_learning_llm_agents</span>():
+                        </h2>
+                        <span class="text-green-500 text-sm block mb-4">May 11, 2025</span>
+                        
+                        <div class="tag-container">
+                            <span class="tag">Reinforcement Learning</span>
+                            <span class="tag">LLM</span>
+                            <span class="tag">AI Agents</span>
+                        </div>
+                        
+                        <p class="mb-5">
+                            <span class="comment"># Exploring how reinforcement learning enhances LLM capabilities,</span>
+                            <br><span class="comment"># with insights from search optimization and recent developments in AI.</span>
+                        </p>
+                        
+                        <p class="mb-4"><span class="keyword">return</span> <a href="#" class="card-link">read_more() →</a></p>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Future papers notice -->
+            <section class="header-comment">
+                <div class="comment-line"># -------------------------------------------------------</div>
+                <div class="comment-line"># More Paper Summaries Coming Soon</div>
+                <div class="comment-line"># I'm currently reading papers on multi-agent systems, large language models,</div>
+                <div class="comment-line"># and reinforcement learning. New summaries will be added soon.</div>
+                <div class="comment-line"># papers = []</div>
+                <div class="comment-line"># for p in library:</div>
+                <div class="comment-line">#     if p.relevant():</div>
+                <div class="comment-line">#         papers.append(p)</div>
+                <div class="comment-line"># -------------------------------------------------------</div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p class="footer-content">
+                <span class="code-comment"># &copy; 2025 Yang Li. All rights reserved.</span><br>
+                <span class="code-comment"># Made with "Python-style CSS" and {<span class="string">❤️</span>: <span class="keyword">True</span>}</span>
+            </p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
