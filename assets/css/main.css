@@ -1,4 +1,4 @@
-/* 
+/*
  * Main CSS for Yang Li's GitHub Pages
  * Python programming style with code editor aesthetics
  */
@@ -8,7 +8,7 @@
 
 /* ===== Variables ===== */
 :root {
-  /* Light theme (default) */
+z  /* Dark IDE theme (default) */
   --color-background: var(--bg-color);
   --color-text-primary: var(--text-color);
   --color-text-secondary: var(--comment-color);
@@ -16,32 +16,21 @@
   --color-accent-hover: var(--constant-color);
   --color-border: var(--card-border);
   --color-background-secondary: var(--card-bg);
-  
+
   /* Typography */
   --font-primary: var(--code-font);
   --font-display: var(--code-font);
-  
+
   /* Spacing */
   --spacing-xs: 0.5rem;
   --spacing-sm: 1rem;
   --spacing-md: 2rem;
   --spacing-lg: 3rem;
   --spacing-xl: 5rem;
-  
+
   /* Container width */
   --container-width: 1000px;
   --container-padding: 1.5rem;
-}
-
-/* Dark theme */
-[data-theme="dark"] {
-  --color-background: var(--bg-color);
-  --color-text-primary: var(--text-color);
-  --color-text-secondary: var(--comment-color);
-  --color-accent: var(--function-color);
-  --color-accent-hover: var(--constant-color);
-  --color-border: var(--card-border);
-  --color-background-secondary: var(--card-bg);
 }
 
 /* ===== Reset & Base Styles ===== */
@@ -154,31 +143,7 @@ p {
   list-style: none;
 }
 
-/* Theme Toggle */
-.theme-toggle {
-  margin-left: var(--spacing-md);
-  display: flex;
-  align-items: center;
-}
-
-#theme-toggle-btn {
-  background: none;
-  border: none;
-  cursor: pointer;
-  color: var(--color-text-primary);
-  font-size: 1.2rem;
-  padding: 0.5rem;
-  border-radius: 50%;
-  transition: all 0.2s ease;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-#theme-toggle-btn:hover {
-  background-color: var(--color-background-secondary);
-  transform: translateY(-2px);
-}
+/* No Theme Toggle - Dark Mode Only */
 
 .nav-link {
   color: var(--color-text-primary);
@@ -371,42 +336,42 @@ p {
   :root {
     --container-padding: 1rem;
   }
-  
+
   h1 {
     font-size: 2rem;
   }
-  
+
   h2 {
     font-size: 1.5rem;
   }
-  
+
   .hero-compact h1 {
     font-size: 1.8rem;
   }
-  
+
   .hero-subtitle {
     font-size: 0.9rem;
   }
-  
+
   .hero-content {
     flex-direction: column;
     align-items: flex-start;
   }
-  
+
   .hero-text {
     max-width: 100%;
     margin-bottom: var(--spacing-xs);
   }
-  
+
   /* Mobile Navigation */
   .nav {
     position: relative;
   }
-  
+
   .nav-toggle {
     display: block;
   }
-  
+
   .nav-links {
     position: fixed;
     top: 0;
@@ -420,11 +385,11 @@ p {
     box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
     z-index: 90;
   }
-  
+
   .nav-links.active {
     right: 0;
   }
-  
+
   .nav-links li {
     margin-bottom: var(--spacing-md);
   }
@@ -434,11 +399,11 @@ p {
   html {
     font-size: 14px;
   }
-  
+
   .hero {
     padding: var(--spacing-lg) 0;
   }
-  
+
   .social-icons {
     flex-wrap: wrap;
   }
@@ -547,11 +512,11 @@ p {
     align-items: flex-start;
     gap: var(--spacing-xs);
   }
-  
+
   .featured-blog {
     flex-direction: column;
   }
-  
+
   .featured-blog-content {
     padding: var(--spacing-sm);
   }

@@ -21,44 +21,8 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
   
-  // Handle theme toggle
-  const themeToggleBtn = document.getElementById('theme-toggle-btn');
-  const htmlElement = document.documentElement;
-  
-  if (themeToggleBtn) {
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme) {
-      htmlElement.setAttribute('data-theme', savedTheme);
-      updateThemeIcon(savedTheme);
-    } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-      htmlElement.setAttribute('data-theme', 'dark');
-      updateThemeIcon('dark');
-    }
-    
-    themeToggleBtn.addEventListener('click', () => {
-      const currentTheme = htmlElement.getAttribute('data-theme') || 'light';
-      const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-      
-      htmlElement.setAttribute('data-theme', newTheme);
-      localStorage.setItem('theme', newTheme);
-      updateThemeIcon(newTheme);
-    });
-  }
-  
-  function updateThemeIcon(theme) {
-    if (!themeToggleBtn) return;
-    
-    const icon = themeToggleBtn.querySelector('i');
-    if (theme === 'dark') {
-      icon.classList.remove('fa-moon');
-      icon.classList.add('fa-sun');
-      document.documentElement.setAttribute('data-python-theme', 'dark');
-    } else {
-      icon.classList.remove('fa-sun');
-      icon.classList.add('fa-moon');
-      document.documentElement.setAttribute('data-python-theme', 'light');
-    }
-  }
+  document.documentElement.setAttribute('data-theme', 'dark');
+  document.documentElement.setAttribute('data-python-theme', 'dark');
   
   // Add scroll animation for elements
   const animateOnScroll = () => {

@@ -8,8 +8,8 @@
 /* Import Inter font for Notion-like style */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
-/* ===== Dark Mode Overrides ===== */
-[data-theme="dark"] {
+/* ===== Dark Mode Variables ===== */
+:root {
   /* Text colors */
   --blog-text-color: var(--color-text-primary);
   --blog-text-secondary: var(--color-text-secondary);
@@ -19,18 +19,6 @@
   --blog-code-text: #f0f0f0;
   --blog-blockquote-border: #444;
   --blog-blockquote-background: #222;
-}
-
-[data-theme="light"] {
-  /* Text colors */
-  --blog-text-color: var(--color-text-primary);
-  --blog-text-secondary: var(--color-text-secondary);
-  --blog-link-color: var(--color-accent);
-  --blog-link-hover: var(--color-accent-hover);
-  --blog-code-background: #f5f5f5;
-  --blog-code-text: #333;
-  --blog-blockquote-border: #ddd;
-  --blog-blockquote-background: #f9f9f9;
 }
 
 /* ===== Blog Layout ===== */
@@ -525,7 +513,7 @@
   background-color: var(--color-background);
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-  border: 1px solid var(--color-border);
+  /* border removed as requested */
   font-size: 0.95rem;
 }
 
