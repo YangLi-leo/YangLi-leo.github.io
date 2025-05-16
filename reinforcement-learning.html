@@ -4,34 +4,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>How Reinforcement Learning Unlocks LLM Agents Capabilities - Yang Li</title>
-    
-    <!-- Favicon -->
-    <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
-    
-    <!-- CSS -->
-    <link rel="stylesheet" href="assets/css/main.css">
-    
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    
-    <!-- Fira Code Font -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fira-code@6.2.0/distr/fira_code.css">
-    
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <style>
-        /* Custom styles */
+        /* 基本样式设置 */
         body {
             font-family: 'Fira Code', 'Source Code Pro', monospace;
             background-color: #1e1e1e;
             color: #d4d4d4;
             line-height: 1.6;
+            margin: 0;
+            padding: 0;
         }
         
         .container {
             max-width: 900px;
             margin: 0 auto;
-            padding: 2rem 1rem;
+            padding: 40px 20px;
         }
         
+        /* 导航链接 */
+        .nav-link {
+            display: inline-block;
+            margin-bottom: 30px;
+            padding: 8px 0;
+            font-size: 1.1em;
+            color: #569cd6;
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+        }
+        
+        .nav-link:hover {
+            border-bottom: 1px solid #569cd6;
+        }
+        
+        /* Python风格元素 */
         .keyword {
             color: #569cd6;
         }
@@ -49,331 +55,374 @@
             color: #ce9178;
         }
         
-        .class {
-            color: #4ec9b0;
+        .variable {
+            color: #9cdcfe;
         }
         
-        .blog-content {
+        /* 页面标题代码块 */
+        .header-code {
             background-color: #252526;
-            border-radius: 0.375rem;
-            padding: 2rem;
-            margin: 2rem 0;
+            padding: 20px;
+            border-radius: 6px;
+            margin-bottom: 30px;
             border-left: 3px solid #569cd6;
         }
         
-        .blog-content h1, .blog-content h2, .blog-content h3 {
-            color: #4ec9b0;
-            margin-top: 2rem;
-            margin-bottom: 1rem;
+        /* 文章容器 */
+        .article-container {
+            background-color: #252526;
+            border-radius: 6px;
+            padding: 30px;
+            margin-top: 20px;
+            position: relative;
+            border-left: 3px solid #569cd6;
+        }
+        
+        /* 文章日期 */
+        .article-date {
+            color: #6a9955;
+            font-size: 0.95em;
+            margin-bottom: 30px;
+            display: block;
+        }
+        
+        /* 博客内容样式 */
+        .blog-content {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            line-height: 1.8;
+            color: #e0e0e0;
         }
         
         .blog-content h1 {
-            font-size: 1.8rem;
-            border-bottom: 1px solid #333;
-            padding-bottom: 0.5rem;
+            color: #4ec9b0;
+            font-size: 2em;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            font-weight: 600;
         }
         
         .blog-content h2 {
-            font-size: 1.5rem;
-        }
-        
-        .blog-content h3 {
-            font-size: 1.25rem;
-            color: #dcdcaa;
+            color: #4ec9b0;
+            font-size: 1.6em;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            font-weight: 500;
+            border-bottom: 1px solid #333;
+            padding-bottom: 10px;
         }
         
         .blog-content p {
-            margin-bottom: 1.5rem;
+            margin-bottom: 20px;
         }
         
-        .blog-content a {
-            color: #569cd6;
-            text-decoration: none;
+        .blog-content strong {
+            color: #ce9178;
+            font-weight: 600;
         }
         
-        .blog-content a:hover {
-            text-decoration: underline;
-        }
-        
-        .blog-content code {
-            background-color: #1e1e1e;
-            padding: 0.2rem 0.4rem;
-            border-radius: 3px;
-            font-family: 'Fira Code', monospace;
-        }
-        
-        .blog-content pre {
-            background-color: #1e1e1e;
-            padding: 1rem;
-            border-radius: 5px;
-            overflow-x: auto;
-            margin-bottom: 1.5rem;
-        }
-        
-        .blog-content blockquote {
-            border-left: 3px solid #569cd6;
-            padding-left: 1rem;
-            margin-left: 0;
-            color: #a0a0a0;
-        }
-        
-        .blog-content ul, .blog-content ol {
-            margin-bottom: 1.5rem;
-            padding-left: 2rem;
-        }
-        
-        .blog-content li {
-            margin-bottom: 0.5rem;
-        }
-        
-        .blog-image {
-            max-width: 100%;
-            height: auto;
-            margin: 2rem 0;
-            border-radius: 5px;
-            border: 1px solid #333;
-        }
-        
-        .blog-meta {
-            margin-bottom: 2rem;
-            color: #a0a0a0;
-            font-size: 0.9rem;
-        }
-        
-        .blog-meta .date {
-            color: #6a9955;
-        }
-        
-        .blog-meta .author {
+        .blog-content em {
             color: #dcdcaa;
-        }
-        
-        .tag-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-bottom: 1.5rem;
-        }
-        
-        .tag {
-            background-color: #2d2d2d;
-            color: #569cd6;
-            padding: 0.25rem 0.75rem;
-            border-radius: 3px;
-            font-size: 0.8rem;
-            border: 1px solid #444;
-        }
-        
-        aside {
-            background-color: #2d2d2d;
-            border-left: 3px solid #ce9178;
-            padding: 1rem;
-            margin: 1.5rem 0;
             font-style: italic;
         }
         
-        .line-numbers {
-            position: absolute;
-            left: 0;
-            top: 0;
-            bottom: 0;
-            width: 30px;
-            text-align: right;
-            color: #6e7681;
-            user-select: none;
-            background-color: #252526;
-            border-right: 1px solid #333;
-            padding-top: 1rem;
-            padding-right: 0.5rem;
+        /* 引用样式 */
+        .blog-content blockquote {
+            margin: 30px 0;
+            padding: 20px;
+            background-color: #2d2d2d;
+            border-left: 3px solid #569cd6;
         }
         
-        .with-line-numbers {
-            margin-left: 40px;
-            padding-left: 1rem;
+        .blog-content blockquote p {
+            margin: 0;
         }
         
+        /* 侧边注释样式 */
+        .blog-content aside {
+            margin: 30px 0;
+            padding: 20px;
+            background-color: #2d2d2d;
+            border-left: 3px solid #4ec9b0;
+            font-style: italic;
+        }
+        
+        /* 标准代码块样式 */
+        .blog-content pre {
+            background-color: #1e1e1e;
+            padding: 15px;
+            border-radius: 4px;
+            overflow-x: auto;
+            font-family: 'Fira Code', 'Source Code Pro', monospace;
+            border: 1px solid #333;
+            margin: 20px 0;
+        }
+        
+        /* 紧凑型流程图代码块样式 */
+        .compact-diagram {
+            background-color: #1e1e1e;
+            padding: 10px;
+            border-radius: 4px;
+            overflow-x: auto;
+            font-family: 'Fira Code', 'Source Code Pro', monospace;
+            border: 1px solid #333;
+            margin: 20px 0;
+            font-size: 0.8em;
+            line-height: 1.2;
+            white-space: pre;
+        }
+        
+        .blog-content code {
+            font-family: 'Fira Code', 'Source Code Pro', monospace;
+            background-color: #2d2d2d;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-size: 0.9em;
+        }
+        
+        /* 图片样式 */
+        .blog-content img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 30px auto;
+            border-radius: 4px;
+        }
+        
+        /* 分隔线样式 */
+        .blog-content hr {
+            border: none;
+            height: 1px;
+            background-color: #333;
+            margin: 40px 0;
+        }
+        
+        /* 列表样式 */
+        .blog-content ul, .blog-content ol {
+            margin-bottom: 20px;
+            padding-left: 20px;
+        }
+        
+        .blog-content li {
+            margin-bottom: 8px;
+        }
+        
+        /* 页脚样式 */
         footer {
-            text-align: center;
-            padding: 2rem 0;
-            margin-top: 3rem;
+            margin-top: 60px;
+            padding-top: 20px;
             border-top: 1px solid #333;
+            text-align: center;
+            font-size: 0.9em;
+            color: #6e7681;
         }
         
-        .footer-content {
-            color: #6a9955;
-        }
-        
-        .back-link {
-            display: inline-block;
-            margin-bottom: 2rem;
-            color: #dcdcaa;
-            text-decoration: none;
-        }
-        
-        .back-link:hover {
-            text-decoration: underline;
+        /* 响应式设计 */
+        @media screen and (max-width: 768px) {
+            .container {
+                padding: 20px 15px;
+            }
+            
+            .article-container {
+                padding: 25px 15px 25px 15px;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
-    <header class="header">
-        <div class="container">
-            <nav class="nav">
-                <a href="index.html" class="nav-logo">
-                    <span class="keyword">import</span> <span class="function">YangLi</span>
-                </a>
-                <div class="nav-social-icons">
-                    <a href="mailto:liyangauthority@gmail.com" aria-label="Email">
-                        <i class="fas fa-envelope"></i>
-                    </a>
-                    <a href="https://github.com/YangLi-leo" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-                        <i class="fab fa-github"></i>
-                    </a>
-                    <a href="https://x.com/YangLi_leo" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
-                        <i class="fab fa-twitter"></i>
-                    </a>
-                    <a href="https://www.linkedin.com/in/yanglileo25" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-                        <i class="fab fa-linkedin"></i>
-                    </a>
-                </div>
-                <button class="nav-toggle" aria-label="Toggle navigation">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
-            </nav>
+    <div class="container">
+        <!-- 导航链接 -->
+        <a href="papers.html" class="nav-link"><span class="keyword">def</span> <span class="function">go_back</span>(): <span class="keyword">return</span> <span class="string">"Paper Reading"</span></a>
+        
+        <!-- 页面标题代码块 -->
+        <div class="header-code">
+            <span class="keyword">class</span> <span class="function">BlogPost</span>:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">def</span> <span class="function">__init__</span>(self):
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.author = <span class="string">"Yang Li"</span>
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.category = <span class="string">"AI Research"</span>
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.date = <span class="string">"May 11, 2025"</span>
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.tags = [<span class="string">"Reinforcement Learning"</span>, <span class="string">"LLM"</span>, <span class="string">"Agent Capabilities"</span>]
         </div>
-    </header>
-
-    <!-- Main Content -->
-    <main class="content">
-        <div class="container">
-            <!-- Navigation Link -->
-            <a href="papers.html" class="back-link">
-                <span class="keyword">def</span> <span class="function">go_back</span>()<span class="operator">:</span> <span class="comment"># ← Return to Papers</span>
-            </a>
+        
+        <!-- 文章容器 -->
+        <div class="article-container">
+            <span class="article-date">May 11, 2025</span>
             
-            <!-- Blog Post -->
-            <article class="blog-content">
-                <h1>How Reinforcement Learning Unlocks LLM Agents Capabilities</h1>
-                
-                <div class="blog-meta">
-                    <span class="date">May 11, 2025</span> • 
-                    <span class="author">Yang Li</span>
-                </div>
-                
-                <div class="tag-container">
-                    <span class="tag">Reinforcement Learning</span>
-                    <span class="tag">LLM</span>
-                    <span class="tag">AI Agents</span>
-                    <span class="tag">Search</span>
-                </div>
-                
-                <p>In recent years, large language models (LLMs) have demonstrated remarkable capabilities across various domains. However, their ability to perform search tasks effectively has been a significant challenge. This blog explores how reinforcement learning (RL) is being leveraged to enhance LLMs' search capabilities, focusing on three key papers: WebGPT, ReSearch, and R1-Searcher.</p>
-                
-                <h2>The Challenge of Search in LLMs</h2>
-                
-                <p>Traditional LLMs struggle with search tasks for several reasons:</p>
-                
-                <ul>
-                    <li>They rely on static knowledge from their training data</li>
-                    <li>They lack the ability to dynamically explore and gather information</li>
-                    <li>They often hallucinate or provide incomplete information when knowledge is missing</li>
-                </ul>
-                
-                <p>Reinforcement learning offers a promising solution by enabling LLMs to learn optimal search strategies through trial and error, guided by carefully designed reward functions.</p>
-                
-                <h2>WebGPT: Pioneering RL for Search</h2>
-                
-                <p>WebGPT, developed by OpenAI, was one of the first models to use reinforcement learning to enhance search capabilities. The model was trained to browse the web, find relevant information, and compose detailed answers to questions.</p>
-                
-                <img src="assets/images/LUM_Policy__E.png" alt="WebGPT Architecture" class="blog-image">
-                
-                <p>The key innovations in WebGPT include:</p>
-                
-                <ol>
-                    <li><strong>RL from Human Feedback (RLHF):</strong> Using human preferences to train a reward model</li>
-                    <li><strong>Web Browsing Environment:</strong> Creating a simulated environment where the model can search and navigate web pages</li>
-                    <li><strong>Iterative Training:</strong> Gradually improving search strategies through multiple rounds of feedback</li>
-                </ol>
-                
-                <p>WebGPT demonstrated that RL could significantly improve an LLM's ability to search for and synthesize information from the web, setting the foundation for future research in this area.</p>
-                
-                <h2>ReSearch: Enhancing Search with Self-Reflection</h2>
-                
-                <p>Building on WebGPT's foundation, ReSearch introduced a novel approach that incorporates self-reflection into the search process. This model was designed to iteratively refine its search strategy based on the results of previous searches.</p>
-                
-                <img src="assets/images/Screen_Shot_2025-05-10_at_21.44.52_PM.png" alt="ReSearch Architecture" class="blog-image">
-                
-                <p>The ReSearch architecture includes:</p>
-                
-                <ul>
-                    <li><strong>Self-Reflection Mechanism:</strong> Evaluating the quality and relevance of search results</li>
-                    <li><strong>Multi-Step Reasoning:</strong> Breaking down complex queries into manageable sub-queries</li>
-                    <li><strong>Adaptive Search Strategy:</strong> Modifying search approaches based on intermediate results</li>
-                </ul>
-                
-                <p>What makes ReSearch particularly interesting is its use of reinforcement learning to optimize the self-reflection process itself. The model learns not just how to search, but how to evaluate and improve its own search strategies.</p>
+            <!-- 博客内容区域 - 使用用户原始内容 -->
+            <div class="blog-content">
+                <h1>How Reinforcement Learning Unlocks LLM Agents Capabilities: Insights from Search Optimization</h1>
                 
                 <aside>
-                The paper demonstrates that self-reflection significantly improves search performance, with ReSearch outperforming baseline models by 23% on complex information-seeking tasks.
+                💡 End-to-end reinforcement learning will be the key to unlocking the next level of LLM capabilities.
                 </aside>
                 
-                <h2>R1-Searcher: Optimizing Search Queries</h2>
+                <p>The rapid progress of large language models over the past eight months has been astonishing, marked by significant milestones such as o1, R1, Gemini 2.5 Pro, Sonnet 3.7, o3, and o4. We've witnessed their transformation from basic chatbots into powerful agents capable of addressing complex, real-world problems. I still remember struggling with GPT-4 at the end of 2023, where prompting external searches was cumbersome and unreliable. However, the recent release of o4-mini showcased vastly improved search capabilities, transparently revealing the model's thought processes in real-time.</p>
                 
-                <p>The most recent advancement in this field is R1-Searcher, which focuses specifically on optimizing the formulation of search queries. This model uses reinforcement learning to generate effective search queries that maximize the retrieval of relevant information.</p>
+                <p>DeepSeek-R1 notably highlights that, with sufficiently intelligent base models, reinforcement learning (RL) can replace supervised fine-tuning (SFT) altogether—allowing models to autonomously learn optimal behaviors. From my perspective, RL unlocks capabilities that go far beyond incremental benchmark improvements—it significantly enhances models' practical problem-solving abilities.</p>
                 
-                <img src="assets/images/Screen_Shot_2025-05-10_at_23.46.19_PM.png" alt="R1-Searcher Query Optimization" class="blog-image">
+                <p>I'll start by revisiting the influential 2021 paper <strong>WebGPT</strong>, which pioneered applying reinforcement learning (RL) to enhance LLM-driven search capabilities. After that, we'll explore recent developments in LLM-based search, where two main approaches dominate today: framework-driven methods combined with retrieval-augmented generation (RAG)—such as Search-o1—and RL-based methods, enabling models to autonomously refine search strategies and proactively use tools. Our discussion will focus on the RL-driven approach, highlighting why it emerges as the more effective strategy.</p>
                 
-                <p>R1-Searcher introduces several innovations:</p>
+                <h2>WebGPT(<a href="https://arxiv.org/pdf/2112.09332">https://arxiv.org/pdf/2112.09332</a>)</h2>
+                
+                <p>This paper was genuinely ahead of its time, and even now—nearly four years later—it remains highly insightful, innovatively enabling LLMs to leverage search engines for accessing up-to-date documents and mimicking human-like interactions. Rather than directly calling the Bing API, the authors developed a text-based browser simulator supporting actions such as Search, Click, Scroll, and Quote. Starting with GPT-3 (760M/13B/175B), initially lacking any inherent tool-use ability, they utilized reinforcement learning to help the model autonomously discover effective strategies.</p>
+                
+                <hr>
+                
+                <!-- 紧凑型流程图代码块 -->
+                <pre class="compact-diagram">┌───────────────────────────────┐
+│    Phase I: Model Building    │
+└───────────────────────────────┘
+     │
+     ▼
+┌─────────────┐    ┌────────────────────────────┐
+│Human Demos  │──▶│Split into "State→Action"    │
+│(state-action)│    │samples                     │
+└─────────────┘    └────────────────────────────┘
+     │
+     ▼
+┌────────────────────────────┐
+│Fine-tune BC → get policy π₀│
+│(Supervised learning)       │
+└────────────────────────────┘
+     │
+     ▼
+┌─────────────┐    ┌────────────────────────────┐
+│Answer Compare│──▶│Train Reward Model (RM)     │ 
+│(Q,A₁,A₂,lbl) │    │(Pairwise logistic loss)    │
+└─────────────┘    └────────────────────────────┘
+     │
+     ▼
+┌────────────────────────────┐
+│Obtain scorer R(Q, A)       │
+└────────────────────────────┘
+
+┌───────────────────────────────┐
+│  Phase II: RL Training        │
+└───────────────────────────────┘
+     │ 
+     ▼
+┌────────────────────────────┐
+│Initialize π ← π₀(BC-SFT)   │
+└────────────────────────────┘
+     │
+     ▼
+┌────────────────────────────┐
+│【Repeat until convergence】 │
+│1. Rollout: execute π       │
+│   → produce answer A       │
+│2. Reward: r = R(Q, A)      │
+│3. PPO update:              │
+│   max E[r] − β·KL(π||π₀)   │
+│4. Update policy π          │
+└────────────────────────────┘
+     │
+     ▼
+┌────────────────────────────┐
+│Get optimized policy π*     │
+└────────────────────────────┘
+
+┌───────────────────────────────┐
+│    Inference & Deployment     │
+└───────────────────────────────┘
+     │
+     ▼
+┌────────────────────────────┐
+│Optional: Best-of-n Reranking│
+│• Sample n answers {Aᵢ}     │
+│• Score each: rᵢ = R(Q, Aᵢ) │
+│• Select A* = argmaxᵢ rᵢ    │
+└────────────────────────────┘</pre>
                 
                 <ul>
-                    <li><strong>Query Optimization:</strong> Learning to generate queries that yield high-quality search results</li>
-                    <li><strong>Context-Aware Searching:</strong> Adapting search strategies based on the specific context and domain</li>
-                    <li><strong>Reward Shaping:</strong> Using sophisticated reward functions that consider both relevance and diversity of results</li>
+                    <li>In Phase I (Model Building), human operators first generated state-action demonstrations through the text-based browser. These demonstrations were then used to perform behavior cloning (supervised learning), resulting in an initial policy π₀. Subsequently, human annotators compared pairs of answers to train a Reward Model (RM), enabling automatic evaluation of answer quality for RL training.</li>
+                    <li>Phase II (Reinforcement Learning) started from the initial policy π₀ and employed PPO to iteratively optimize the model's behavior within the simulated browser environment, eventually yielding the refined policy π*. Finally, during the Inference and Deployment phase, test-time scaling was applied: multiple candidate answers were generated, re-ranked using the RM, and the best answer was selected for output.</li>
                 </ul>
                 
-                <p>The reinforcement learning approach in R1-Searcher is particularly noteworthy for its use of a specialized reward function that balances exploration (finding diverse information) and exploitation (focusing on highly relevant results).</p>
+                <hr>
                 
-                <h2>Comparative Analysis</h2>
+                <p>It's still unclear whether having LLMs directly mimic human browser usage is the optimal approach for information retrieval. However, leveraging reinforcement learning to enable LLMs to autonomously develop search strategies is undoubtedly innovative. Fundamentally, this approach explores how RL can empower LLMs to perform tasks that extend beyond their pre-trained knowledge.</p>
                 
-                <p>When comparing these three approaches, we can observe a clear evolution in how reinforcement learning is applied to enhance search capabilities in LLMs:</p>
+                <p>So, let's move on to the 'Modern' ways to do search via llm.</p>
+                
+                <h2>ReSearch（<a href="https://arxiv.org/pdf/2503.19470">https://arxiv.org/pdf/2503.19470</a>）</h2>
+                
+                <blockquote>
+                    <p><em>Models used in this paper: Qwen2.5-7B(Instruct), Qwen2.5-32B(Instruct)</em></p>
+                </blockquote>
+                
+                <p>This paper sets the foundational tone for most of the subsequent research. Let's first understand its core logic step-by-step through the provided workflow diagram. Notably, it does not provide supervised data for the reasoning steps. Instead, it leverages reinforcement learning (specifically GRPO) to encourage the model to autonomously reason with integrated search actions.</p>
+                
+                <p><img src="https://page1.genspark.site/v1/base64_upload/1f086b8164a080b1a61be736044abe40/LUM_Policy__E.png" alt="LUM Policy  E.png"></p>
+                
+                <p>Because of the GRPO method, each question triggers multiple sampled trajectories (rollouts) that interleave &lt;think&gt; and &lt;search&gt; tags. Whenever the model encounters a &lt;/search&gt; tag, it performs a retrieval action, and the retrieved results are incorporated back into the reasoning chain. This iterative Think ↔ Search loop continues until an &lt;answer&gt; is produced, making search genuinely intertwined with reasoning, rather than merely appending search results. By iteratively performing sampling, scoring, and updating through GRPO until convergence, the policy eventually learns when to search, what to search for, and how to effectively utilize retrieved information, entirely without human-annotated search examples.</p>
+                
+                <hr>
+                
+                <p>Having covered the basic logic, we now discuss several intriguing details highlighted in this paper—details frequently revisited by later research:</p>
                 
                 <ul>
-                    <li><strong>WebGPT</strong> established the foundation by using RL to train models to navigate and extract information from the web</li>
-                    <li><strong>ReSearch</strong> built upon this by adding self-reflection mechanisms to iteratively improve search strategies</li>
-                    <li><strong>R1-Searcher</strong> focused specifically on optimizing the query formulation process</li>
+                    <li>After reinforcement learning, models naturally identify and correct mistakes, enabling self-driven re-searching.</li>
                 </ul>
                 
-                <p>Each approach has its strengths and limitations, but together they demonstrate the significant potential of reinforcement learning in enhancing LLMs' search capabilities.</p>
+                <p><img src="https://page1.genspark.site/v1/base64_upload/1f086b8164a080b1a61be736044abe40/Screen_Shot_2025-05-10_at_21.44.52_PM.png" alt="Screen Shot 2025-05-10 at 21.44.52 PM.png"></p>
                 
-                <img src="assets/images/Screen_Shot_2025-05-10_at_22.40.05_PM.png" alt="Comparative Performance" class="blog-image">
+                <ul>
+                    <li>Even though the model was exclusively trained on the <em>MuSiQue</em> dataset, it generalizes remarkably well across multiple test sets, indicating the broad applicability of the ReSearch framework.</li>
+                    <li>For smaller 7B models, the presence or absence of instruction-tuning shows limited differences. However, for larger 32B models, reinforcement learning significantly enhances performance, leading to notable gaps between base and instruction-tuned models.</li>
+                    <li>Larger 32B models initially rely heavily on inherent knowledge, producing longer responses without frequently resorting to retrieval. But as training progresses, driven by reinforcement signals, they gradually begin leveraging search tools more actively, thus reducing dependency on internal knowledge.</li>
+                </ul>
+                
+                <h2>R1-Searcher(<a href="https://arxiv.org/pdf/2503.05592">https://arxiv.org/pdf/2503.05592</a>)</h2>
+                
+                <blockquote>
+                    <p><em>Models used in this paper: Llama-3.1-8B-Instruct, Qwen-2.5-7B-Base</em></p>
+                </blockquote>
+                
+                <p>Essentially, this paper is an extension of <em>ReSearch</em>, but it brings innovative modifications in the training approach and provides more detailed insights into reinforcement learning (RL).</p>
+                
+                <p>The RL training is divided into two distinct stages:</p>
+                
+                <ul>
+                    <li><strong>Stage-0: Pilot Run (Difficulty Labeling):</strong><br>
+                    The authors first run all questions locally using an untrained Qwen-2.5-7B-Instruct model to record how many searches each question requires. Questions are then categorized into Easy, Medium, and Hard.</li>
+                    <li><strong>Stage-1: "Learning to Search":</strong><br>
+                    Using only Medium-level questions (HotpotQA 200 + 2Wiki 150), the model is trained with rewards emphasizing retrieval usage (<strong>Retrieval Reward</strong>) and proper response formatting (<strong>Format Reward</strong>). This allows the model to initially grasp <em>when</em> and <em>how</em> to effectively initiate search requests.</li>
+                    <li><strong>Stage-2: "Learning to Answer":</strong><br>
+                    Incorporating Hard-level questions (HotpotQA 2.5k + 2Wiki 2.5k), mixed with Medium-level questions, the reward shifts to prioritizing answer accuracy (<strong>F1/CEM</strong>) while penalizing format errors (<strong>Format Penalty</strong>). This phase encourages the model to produce high-quality answers based on retrieved information.</li>
+                </ul>
+                
+                <p>Both training phases utilize the <strong>Reinforce++</strong> algorithm. Interestingly, later research has observed notable differences between Reinforce++ and GRPO. GRPO tends to encourage models to produce longer outputs and conduct more frequent searches, resulting in stronger generalization. Conversely, Reinforce++ leads to concise responses, faster convergence, and stronger performance within known domains. On average, their performance is comparable; the choice between them depends on whether your task emphasizes maximizing performance within a specific domain or achieving broad generalization.</p>
+                
+                <hr>
+                
+                <p>Some noteworthy results emerged from the experiments:</p>
+                
+                <ul>
+                    <li>Compared to purely supervised fine-tuned (SFT) models, RL-trained models tend to call external search tools more proactively when unsure about answers, whereas SFT models rely heavily on their inherent knowledge—even at the risk of providing incorrect responses.</li>
+                </ul>
+                
+                <p><img src="https://page1.genspark.site/v1/base64_upload/1f086b8164a080b1a61be736044abe40/Screen_Shot_2025-05-10_at_23.46.19_PM.png" alt="Screen Shot 2025-05-10 at 23.46.19 PM.png"></p>
+                
+                <ul>
+                    <li>Remarkably, although the R1-Searcher was trained only on a local Wikipedia corpus, when evaluated on the completely unseen Bamboogle dataset using live Google API calls, the online Qwen-Base-RL achieved a +18.2% improvement in CEM over local retrieval and outperformed the 32B Search-o1 model by +11.4%. The fact that R1-Searcher surpasses Search-o1 is particularly noteworthy. Search-o1 is an agentic RAG method combined with reason-in-documents (primarily at inference), suggesting that RL-driven approaches can outperform carefully hand-crafted frameworks.</li>
+                </ul>
+                
+                <p><img src="https://page1.genspark.site/v1/base64_upload/1f086b8164a080b1a61be736044abe40/Screen_Shot_2025-05-10_at_22.40.05_PM.png" alt="Screen Shot 2025-05-10 at 22.40.05 PM.png"></p>
                 
                 <aside>
                 👀 However, both ReSearch and R1-Searcher share a common limitation highlighted in the papers: <em>These methods typically employ static, local textual corpora such as Wikipedia and fail to capture the complexities of real-world interactions.</em><br><br>This indicates uncertainty regarding their performance in real-world scenarios and emphasizes the need to establish new, more realistic benchmarks for evaluating LLM search capabilities.
                 </aside>
                 
-                <h2>Conclusion</h2>
+                <h1>Conclusion</h1>
                 
                 <p>This blog focuses primarily on sharing the latest architectures adopted by large language models (LLMs) when performing search tasks. Future posts will introduce even newer architectures. Although the architectures are becoming increasingly sophisticated, the underlying reinforcement learning algorithm remains GRPO; however, the innovative designs in reward functions deserve special attention. In subsequent blogs, we will specifically concentrate on discussing these reward function innovations.</p>
                 
                 <p>On one hand, we observe clear performance gains driven by architectural changes. On the other hand, I believe the detailed RL insights presented in these papers are even more crucial. From these examples, it's evident that reinforcement learning is highly effective in guiding models to autonomously explore optimal search strategies. Undoubtedly, this is a promising research direction, and we will continue to closely follow its developments.</p>
-            </article>
+            </div>
         </div>
-    </main>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <p class="footer-content">
-                <span class="comment"># © 2025 Yang Li. All rights reserved.</span><br>
-                <span class="comment"># Made with "Python-style CSS" and {<span class="string">❤️</span>: <span class="keyword">True</span>}</span>
-            </p>
-        </div>
-    </footer>
-
-    <!-- JavaScript -->
-    <script src="assets/js/main.js"></script>
+        
+        <footer>
+            <span class="comment"># © 2025 Yang Li. All rights reserved.</span>
+        </footer>
+    </div>
 </body>
 </html>
