@@ -1,0 +1,260 @@
+/* 
+ * Python Theme CSS for Yang Li's GitHub Pages
+ * Python programming style with code editor aesthetics
+ */
+
+/* ===== Python Theme Variables ===== */
+:root {
+    /* VS Code-like Dark Theme (default) */
+    --bg-color: #1e1e1e;
+    --text-color: #d4d4d4;
+    --comment-color: #6a9955;
+    --keyword-color: #569cd6;
+    --function-color: #dcdcaa;
+    --string-color: #ce9178;
+    --number-color: #b5cea8;
+    --class-color: #4ec9b0;
+    --constant-color: #4fc1ff;
+    --parameter-color: #9cdcfe;
+    --operator-color: #d4d4d4;
+    --line-number-color: #858585;
+    --card-bg: #252526;
+    --card-border: #333333;
+    --highlight-bg: #264f78;
+    
+    /* Typography */
+    --code-font: 'Fira Code', 'Source Code Pro', monospace;
+}
+
+/* Light Python Theme */
+[data-theme="light"] {
+    --bg-color: #f9f9f9;
+    --text-color: #24292e;
+    --comment-color: #6a737d;
+    --keyword-color: #d73a49;
+    --function-color: #6f42c1;
+    --string-color: #032f62;
+    --number-color: #005cc5;
+    --class-color: #22863a;
+    --constant-color: #005cc5;
+    --parameter-color: #24292e;
+    --operator-color: #24292e;
+    --line-number-color: #6a737d;
+    --card-bg: #ffffff;
+    --card-border: #e1e4e8;
+    --highlight-bg: #f1f8ff;
+}
+
+/* Apply Python Theme to Base Elements */
+body {
+    font-family: var(--code-font);
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+/* Header Comment Section */
+.header-comment {
+    background-color: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin: 2rem 0;
+    position: relative;
+}
+
+.comment-line {
+    color: var(--comment-color);
+    margin-bottom: 0.5rem;
+}
+
+/* Featured Post Section */
+.featured-post {
+    background-color: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin: 2rem 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.featured-post::before {
+    content: "class FeaturedPost:";
+    display: block;
+    color: var(--class-color);
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.featured-post-label {
+    display: inline-block;
+    background-color: var(--highlight-bg);
+    color: var(--text-color);
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    margin-bottom: 0.5rem;
+}
+
+.featured-post-title {
+    color: var(--function-color);
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+.featured-post-date {
+    color: var(--comment-color);
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+.featured-post-content {
+    color: var(--text-color);
+    margin-bottom: 1rem;
+}
+
+.read-more {
+    display: inline-block;
+    color: var(--constant-color);
+    text-decoration: none;
+    margin-top: 0.5rem;
+}
+
+.read-more:hover {
+    text-decoration: underline;
+}
+
+/* Code Line Styling */
+.code-line {
+    display: flex;
+    margin-bottom: 0.25rem;
+}
+
+.line-number {
+    color: var(--line-number-color);
+    padding-right: 1rem;
+    text-align: right;
+    min-width: 2rem;
+    user-select: none;
+}
+
+.code-content {
+    flex: 1;
+}
+
+.indented {
+    margin-left: 2rem;
+}
+
+/* Card Container and Cards */
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 8px;
+    padding: 1.5rem;
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+.card::before {
+    display: block;
+    color: var(--function-color);
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.ai-projects::before {
+    content: "def ai_projects():";
+}
+
+.paper-reading::before {
+    content: "def paper_reading():";
+}
+
+.tutorials::before {
+    content: "def tutorials_and_guides():";
+}
+
+.research::before {
+    content: "def research_papers():";
+}
+
+.card-title {
+    color: var(--class-color);
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+}
+
+.card-date {
+    color: var(--comment-color);
+    font-size: 0.8rem;
+    margin-bottom: 1rem;
+}
+
+.card-content {
+    color: var(--text-color);
+    margin-bottom: 1rem;
+}
+
+.card-link {
+    color: var(--constant-color);
+    text-decoration: none;
+}
+
+.card-link:hover {
+    text-decoration: underline;
+}
+
+/* Code Decoration */
+.code-decoration {
+    position: absolute;
+    right: 1rem;
+    bottom: 1rem;
+    opacity: 0.15;
+    pointer-events: none;
+    font-size: 0.8rem;
+    max-width: 150px;
+}
+
+/* Python Syntax Highlights */
+.keyword {
+    color: var(--keyword-color);
+}
+
+.function {
+    color: var(--function-color);
+}
+
+.string {
+    color: var(--string-color);
+}
+
+.comment, .code-comment {
+    color: var(--comment-color);
+}
+
+.number {
+    color: var(--number-color);
+}
+
+.class {
+    color: var(--class-color);
+}
+
+.parameter {
+    color: var(--parameter-color);
+}
