@@ -26,24 +26,7 @@
     --code-font: 'Fira Code', 'Source Code Pro', monospace;
 }
 
-/* Light Python Theme */
-[data-theme="light"] {
-    --bg-color: #f9f9f9;
-    --text-color: #24292e;
-    --comment-color: #6a737d;
-    --keyword-color: #d73a49;
-    --function-color: #6f42c1;
-    --string-color: #032f62;
-    --number-color: #005cc5;
-    --class-color: #22863a;
-    --constant-color: #005cc5;
-    --parameter-color: #24292e;
-    --operator-color: #24292e;
-    --line-number-color: #6a737d;
-    --card-bg: #ffffff;
-    --card-border: #e1e4e8;
-    --highlight-bg: #f1f8ff;
-}
+
 
 /* Apply Python Theme to Base Elements */
 body {
