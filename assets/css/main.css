@@ -268,30 +268,7 @@ p {
   transform: translateY(-2px);
 }
 
-/* ===== Blog Section ===== */
-.blog-list {
-  list-style: none;
-}
 
-.blog-item {
-  margin-bottom: var(--spacing-md);
-  padding-bottom: var(--spacing-md);
-  border-bottom: 1px solid var(--color-border);
-}
-
-.blog-item:last-child {
-  border-bottom: none;
-}
-
-.blog-item h3 {
-  margin-top: 0;
-}
-
-.blog-item-meta {
-  color: var(--color-text-secondary);
-  font-size: 0.9rem;
-  margin-bottom: var(--spacing-xs);
-}
 
 /* ===== Cards ===== */
 .card {
@@ -457,25 +434,7 @@ p {
   font-size: 0.9rem;
 }
 
-/* ===== Featured Blog Post ===== */
-.featured-blog {
-  background-color: var(--color-background);
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-  margin-bottom: var(--spacing-md);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  border: 1px solid var(--color-border);
-}
 
-.featured-blog:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
-}
-
-.featured-blog-content {
-  padding: var(--spacing-md);
-}
 
 .featured-label {
   display: inline-block;
@@ -488,20 +447,7 @@ p {
   margin-bottom: var(--spacing-xs);
 }
 
-/* ===== Recent Posts ===== */
-.recent-posts {
-  margin-top: var(--spacing-md);
-}
 
-.recent-posts-heading {
-  margin-bottom: var(--spacing-sm);
-}
-
-.blog-coming-soon {
-  text-align: center;
-  font-style: italic;
-  color: var(--color-text-secondary);
-}
 
 /* ===== Multi-column Layout ===== */
 .content-grid {
@@ -548,11 +494,5 @@ p {
     gap: var(--spacing-xs);
   }
   
-  .featured-blog {
-    flex-direction: column;
-  }
-  
-  .featured-blog-content {
-    padding: var(--spacing-sm);
-  }
+
 }
