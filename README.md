@@ -6,7 +6,7 @@ This repository contains the source code for my personal website hosted on GitHu
 
 - Clean, Apple-inspired design
 - Responsive layout for all device sizes
-- Blog section with individual post pages
+
 - Smooth animations and transitions
 - Mobile-friendly navigation
 
@@ -15,13 +15,11 @@ This repository contains the source code for my personal website hosted on GitHu
 ```
 yangli-leo.github.io/
 ├── index.html                  # Homepage
-├── blog/                       # Blog directory
-│   ├── index.html              # Blog listing page
-│   └── google-maps-mcp-trip.html  # Sample blog post
+
 ├── assets/                     # Assets directory
 │   ├── css/                    # CSS files
 │   │   ├── main.css            # Main stylesheet
-│   │   └── blog.css            # Blog-specific styles
+
 │   ├── js/                     # JavaScript files
 │   │   └── main.js             # Main JavaScript file
 │   └── images/                 # Image files
@@ -66,13 +64,6 @@ The color scheme can be modified by editing the CSS variables in `assets/css/mai
 }
 ```
 
-### Adding Blog Posts
-
-To add a new blog post:
-
-1. Create a new HTML file in the `blog/` directory
-2. Use the existing blog post as a template
-3. Update the blog listing page (`blog/index.html`) to include the new post
 
 ### Creating a Favicon
 
