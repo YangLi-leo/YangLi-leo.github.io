@@ -52,9 +52,11 @@ document.addEventListener('DOMContentLoaded', () => {
     if (theme === 'dark') {
       icon.classList.remove('fa-moon');
       icon.classList.add('fa-sun');
+      document.documentElement.setAttribute('data-python-theme', 'dark');
     } else {
       icon.classList.remove('fa-sun');
       icon.classList.add('fa-moon');
+      document.documentElement.setAttribute('data-python-theme', 'light');
     }
   }
   

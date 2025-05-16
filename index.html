@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yang Li | CS Undergrad</title>
-    <meta name="description" content="Personal website of Yang Li, Computer Science undergraduate student passionate about web development, AI, and open source.">
+    <title>Yang Li - CS Undergrad | Python Developer</title>
+    <meta name="description" content="Personal website of Yang Li, Computer Science undergraduate student passionate about Python, AI, and research.">
     
     <!-- Favicon -->
     <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
@@ -14,15 +14,21 @@
     
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <!-- Fira Code Font -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fira-code@6.2.0/distr/fira_code.css">
 </head>
 <body>
     <!-- Header -->
     <header class="header">
         <div class="container">
             <nav class="nav">
-                <a href="index.html" class="nav-logo">Yang Li</a>
+                <a href="index.html" class="nav-logo">
+                    <span class="keyword">import</span> <span class="function">YangLi</span>
+                </a>
                 <ul class="nav-links">
-                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="#about" class="nav-link">About</a></li>
+                    <li><a href="#projects" class="nav-link">Projects</a></li>
                     <li><a href="blog/index.html" class="nav-link">Blog</a></li>
                 </ul>
                 <div class="theme-toggle">
@@ -42,92 +48,210 @@
     <!-- Main Content -->
     <main class="content">
         <div class="container">
-            <!-- Hero Section -->
-            <section class="hero-compact animate-on-scroll">
-                <div class="hero-content">
-                    <div class="hero-text">
-                        <h1>Yang Li</h1>
-                        <p class="hero-subtitle">CS Undergrad | Web Developer | AI Enthusiast</p>
-                    </div>
-                    
-                    <!-- Social Icons -->
-                    <div class="social-icons">
-                        <a href="mailto:liyangauthority@gmail.com" aria-label="Email">
-                            <i class="fas fa-envelope"></i>
-                        </a>
-                        <a href="https://github.com/YangLi-leo" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-                            <i class="fab fa-github"></i>
-                        </a>
-                        <a href="https://x.com/YangLi_leo" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
-                            <i class="fab fa-twitter"></i>
-                        </a>
-                        <a href="https://www.linkedin.com/in/yanglileo25" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-                            <i class="fab fa-linkedin"></i>
-                        </a>
-                    </div>
+            <!-- Header Comment Section (Python File Header Style) -->
+            <section class="header-comment" id="about">
+                <div class="comment-line"># -------------------------------------------------------</div>
+                <div class="comment-line"># File: yang_li_profile.py</div>
+                <div class="comment-line"># Name: Yang Li</div>
+                <div class="comment-line"># Role: CS Undergrad | AI Enthusiast | Python Developer</div>
+                <div class="comment-line"># -------------------------------------------------------</div>
+                <div class="comment-line"># About:</div>
+                <div class="comment-line"># I'm a Computer Science undergraduate student with a strong</div>
+                <div class="comment-line"># interest in Artificial Intelligence, Machine Learning, and</div>
+                <div class="comment-line"># Python development.</div>
+                <div class="comment-line"># -------------------------------------------------------</div>
+                
+                <!-- Social Icons -->
+                <div class="social-icons">
+                    <a href="mailto:liyangauthority@gmail.com" aria-label="Email">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                    <a href="https://github.com/YangLi-leo" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://x.com/YangLi_leo" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/yanglileo25" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
                 </div>
             </section>
 
-            <!-- Blog Section -->
-            <section class="animate-on-scroll">
-                <div class="section-header">
-                    <h2>Latest from the Blog</h2>
-                    <a href="blog/index.html" class="section-link">View All Posts →</a>
-                </div>
-                
-                <div class="featured-blog">
-                    <div class="featured-blog-content">
-                        <div class="featured-label">Featured Post</div>
-                        <h3>
-                            <a href="blog/reinforcement-learning-llm-agents.html">How Reinforcement Learning Unlocks LLM Agents Capabilities</a>
-                        </h3>
-                        <div class="blog-item-meta">May 11, 2025</div>
-                        <p>Exploring how reinforcement learning enhances LLM capabilities, with insights from search optimization and recent developments in AI.</p>
-                        <a href="blog/reinforcement-learning-llm-agents.html" class="post-read-more">Read more →</a>
+            <!-- Featured Post Section -->
+            <section class="featured-post">
+                <span class="featured-post-label">Featured Post</span>
+                <h2 class="featured-post-title">How Reinforcement Learning Unlocks LLM Agents Capabilities</h2>
+                <div class="featured-post-date">May 11, 2025</div>
+                <div class="featured-post-content">
+                    <div class="code-line">
+                        <span class="line-number">1</span>
+                        <div class="code-content">
+                            <span class="keyword">def</span> <span class="function">explore_reinforcement_learning</span>():
+                        </div>
                     </div>
+                    <div class="code-line">
+                        <span class="line-number">2</span>
+                        <div class="code-content indented">
+                            <span class="code-comment"># Exploring how reinforcement learning enhances LLM capabilities,</span>
+                        </div>
+                    </div>
+                    <div class="code-line">
+                        <span class="line-number">3</span>
+                        <div class="code-content indented">
+                            <span class="code-comment"># with insights from search optimization and recent developments in AI.</span>
+                        </div>
+                    </div>
+                    <div class="code-line">
+                        <span class="line-number">4</span>
+                        <div class="code-content indented">
+                            <span class="keyword">return</span> <span class="string">"Breakthrough insights on agent capabilities"</span>
+                        </div>
+                    </div>
+                </div>
+                <a href="blog/reinforcement-learning-llm-agents.html" class="read-more">read_more() →</a>
+                <div class="code-decoration">
+                    <div>import numpy as np</div>
+                    <div>import torch</div>
+                    <div>from transformers import *</div>
                 </div>
             </section>
-            
-            <!-- Content Grid Section -->
-            <section class="animate-on-scroll">
+
+            <!-- Card Grid Section -->
+            <section class="content-section" id="projects">
                 <div class="section-header">
-                    <h2>Explore Content</h2>
+                    <h2>
+                        <span class="keyword">import</span> 
+                        <span class="function">projects</span>
+                    </h2>
                 </div>
                 
-                <div class="content-grid">
-                    <div class="content-grid-item">
-                        <div class="content-grid-content">
-                            <h3 class="content-grid-title">AI Projects</h3>
-                            <div class="content-grid-meta">Updated May 2025</div>
-                            <p>Explore my latest AI projects including multi-agent systems, language models, and machine learning applications.</p>
-                            <a href="#" class="post-read-more">View Projects →</a>
+                <div class="card-container">
+                    <!-- AI Projects Card -->
+                    <div class="card ai-projects">
+                        <h3 class="card-title">AI Projects</h3>
+                        <div class="card-date">Updated May 2025</div>
+                        <div class="card-content">
+                            <div class="code-line">
+                                <span class="line-number">1</span>
+                                <div class="code-content">
+                                    <span class="code-comment"># Explore my latest AI projects including</span>
+                                </div>
+                            </div>
+                            <div class="code-line">
+                                <span class="line-number">2</span>
+                                <div class="code-content">
+                                    <span class="code-comment"># multi-agent systems, language models,</span>
+                                </div>
+                            </div>
+                            <div class="code-line">
+                                <span class="line-number">3</span>
+                                <div class="code-content">
+                                    <span class="code-comment"># and machine learning applications.</span>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#" class="card-link">view_projects() →</a>
+                        <div class="code-decoration">
+                            <div>class AIProject:</div>
+                            <div>    def __init__(self):</div>
+                            <div>        self.type = "ML"</div>
                         </div>
                     </div>
-                    
-                    <div class="content-grid-item">
-                        <div class="content-grid-content">
-                            <h3 class="content-grid-title">Web Development</h3>
-                            <div class="content-grid-meta">Updated May 2025</div>
-                            <p>Check out my web development work including responsive designs, interactive applications, and modern frameworks.</p>
-                            <a href="#" class="post-read-more">View Projects →</a>
+
+                    <!-- Paper Reading Card (replaces Web Development) -->
+                    <div class="card paper-reading">
+                        <h3 class="card-title">Paper Reading</h3>
+                        <div class="card-date">Updated May 2025</div>
+                        <div class="card-content">
+                            <div class="code-line">
+                                <span class="line-number">1</span>
+                                <div class="code-content">
+                                    <span class="code-comment"># My notes and summaries from reading</span>
+                                </div>
+                            </div>
+                            <div class="code-line">
+                                <span class="line-number">2</span>
+                                <div class="code-content">
+                                    <span class="code-comment"># important papers in AI, ML, and</span>
+                                </div>
+                            </div>
+                            <div class="code-line">
+                                <span class="line-number">3</span>
+                                <div class="code-content">
+                                    <span class="code-comment"># computer science research.</span>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#" class="card-link">view_papers() →</a>
+                        <div class="code-decoration">
+                            <div>papers = []</div>
+                            <div>for p in library:</div>
+                            <div>    if p.relevant(): papers.append(p)</div>
                         </div>
                     </div>
-                    
-                    <div class="content-grid-item">
-                        <div class="content-grid-content">
-                            <h3 class="content-grid-title">Tutorials and Guides</h3>
-                            <div class="content-grid-meta">Updated May 2025</div>
-                            <p>Learn from my step-by-step tutorials on programming, AI development, and web technologies.</p>
-                            <a href="#" class="post-read-more">View Tutorials →</a>
+
+                    <!-- Tutorials Card -->
+                    <div class="card tutorials">
+                        <h3 class="card-title">Tutorials and Guides</h3>
+                        <div class="card-date">Updated May 2025</div>
+                        <div class="card-content">
+                            <div class="code-line">
+                                <span class="line-number">1</span>
+                                <div class="code-content">
+                                    <span class="code-comment"># Learn from my step-by-step tutorials</span>
+                                </div>
+                            </div>
+                            <div class="code-line">
+                                <span class="line-number">2</span>
+                                <div class="code-content">
+                                    <span class="code-comment"># on programming, AI development,</span>
+                                </div>
+                            </div>
+                            <div class="code-line">
+                                <span class="line-number">3</span>
+                                <div class="code-content">
+                                    <span class="code-comment"># and web technologies.</span>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#" class="card-link">view_tutorials() →</a>
+                        <div class="code-decoration">
+                            <div>def explain(concept):</div>
+                            <div>    steps = break_down(concept)</div>
+                            <div>    return steps</div>
                         </div>
                     </div>
-                    
-                    <div class="content-grid-item">
-                        <div class="content-grid-content">
-                            <h3 class="content-grid-title">Research Papers</h3>
-                            <div class="content-grid-meta">Updated May 2025</div>
-                            <p>Read my latest research papers and academic work in computer science and artificial intelligence.</p>
-                            <a href="#" class="post-read-more">View Papers →</a>
+
+                    <!-- Research Papers Card -->
+                    <div class="card research">
+                        <h3 class="card-title">Research Papers</h3>
+                        <div class="card-date">Updated May 2025</div>
+                        <div class="card-content">
+                            <div class="code-line">
+                                <span class="line-number">1</span>
+                                <div class="code-content">
+                                    <span class="code-comment"># Read my latest research papers</span>
+                                </div>
+                            </div>
+                            <div class="code-line">
+                                <span class="line-number">2</span>
+                                <div class="code-content">
+                                    <span class="code-comment"># and academic work in computer</span>
+                                </div>
+                            </div>
+                            <div class="code-line">
+                                <span class="line-number">3</span>
+                                <div class="code-content">
+                                    <span class="code-comment"># science and artificial intelligence.</span>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#" class="card-link">view_research() →</a>
+                        <div class="code-decoration">
+                            <div>@published</div>
+                            <div>class Research:</div>
+                            <div>    """Published work"""</div>
                         </div>
                     </div>
                 </div>
@@ -138,7 +262,11 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2025 Yang Li. All rights reserved.</p>
+            <p>
+                <span class="code-comment"># End of file: yang_li_profile.py</span><br>
+                &copy; 2025 Yang Li. All rights reserved.<br>
+                <span class="keyword">import</span> <span class="function">passion</span>
+            </p>
         </div>
     </footer>
 

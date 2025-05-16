@@ -1,22 +1,25 @@
 /* 
  * Main CSS for Yang Li's GitHub Pages
- * Apple-inspired design with clean aesthetics and responsive layout
+ * Python programming style with code editor aesthetics
  */
+
+/* Import Python Theme */
+@import url('python-theme.css');
 
 /* ===== Variables ===== */
 :root {
   /* Light theme (default) */
-  --color-background: #f8f5f0; /* Light beige instead of pure white */
-  --color-text-primary: #1d1d1f;
-  --color-text-secondary: #86868b;
-  --color-accent: #0066cc;
-  --color-accent-hover: #0077ed;
-  --color-border: #e0dcd5;
-  --color-background-secondary: #f0ece5;
+  --color-background: var(--bg-color);
+  --color-text-primary: var(--text-color);
+  --color-text-secondary: var(--comment-color);
+  --color-accent: var(--function-color);
+  --color-accent-hover: var(--constant-color);
+  --color-border: var(--card-border);
+  --color-background-secondary: var(--card-bg);
   
   /* Typography */
-  --font-primary: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  --font-display: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-primary: var(--code-font);
+  --font-display: var(--code-font);
   
   /* Spacing */
   --spacing-xs: 0.5rem;
@@ -26,19 +29,19 @@
   --spacing-xl: 5rem;
   
   /* Container width */
-  --container-width: 900px;
+  --container-width: 1000px;
   --container-padding: 1.5rem;
 }
 
 /* Dark theme */
 [data-theme="dark"] {
-  --color-background: #1a1a1a;
-  --color-text-primary: #f0f0f0;
-  --color-text-secondary: #a0a0a0;
-  --color-accent: #3a8ee6;
-  --color-accent-hover: #5ca3f2;
-  --color-border: #333333;
-  --color-background-secondary: #2a2a2a;
+  --color-background: var(--bg-color);
+  --color-text-primary: var(--text-color);
+  --color-text-secondary: var(--comment-color);
+  --color-accent: var(--function-color);
+  --color-accent-hover: var(--constant-color);
+  --color-border: var(--card-border);
+  --color-background-secondary: var(--card-bg);
 }
 
 /* ===== Reset & Base Styles ===== */
@@ -140,6 +143,9 @@ p {
   font-weight: 600;
   font-size: 1.25rem;
   color: var(--color-text-primary);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .nav-links {
