@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant DeepResearch - Yang Li's Blog</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
+    
+    <!-- Fira Code Font -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fira-code@6.2.0/distr/fira_code.css">
+    
+    <style>
+        body {
+            font-family: 'Fira Code', 'Source Code Pro', Consolas, Monaco, 'Andale Mono', monospace;
+            background-color: #1e1e1e;
+            color: #d4d4d4;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        h1 {
+            color: #569cd6;
+            font-weight: normal;
+        }
+        
+        h2 {
+            color: #4ec9b0;
+            font-weight: normal;
+            border-bottom: 1px solid #3e3e42;
+            padding-bottom: 0.5rem;
+        }
+        
+        h3 {
+            color: #dcdcaa;
+            font-weight: normal;
+        }
+        
+        a {
+            color: #dcdcaa;
+            text-decoration: none;
+        }
+        
+        a:hover {
+            text-decoration: underline;
+        }
+        
+        .comment {
+            color: #6a9955;
+            font-style: italic;
+            margin: 1rem 0;
+        }
+        
+        .string {
+            color: #ce9178;
+        }
+        
+        .keyword {
+            color: #569cd6;
+        }
+        
+        .function {
+            color: #dcdcaa;
+        }
+        
+        .date {
+            color: #9cdcfe;
+            margin-bottom: 1.5rem;
+        }
+        
+        .nav-link {
+            display: block;
+            margin-bottom: 1rem;
+            color: #569cd6;
+        }
+        
+        .github-button {
+            display: inline-block;
+            background-color: #0d1117;
+            color: #f0f6fc;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            margin: 1rem 0;
+            font-weight: bold;
+            border: 1px solid #30363d;
+        }
+        
+        .github-button:hover {
+            background-color: #161b22;
+            text-decoration: none;
+        }
+        
+        .article-content {
+            background-color: #252526;
+            padding: 1.5rem;
+            border-radius: 4px;
+            margin-top: 1rem;
+            border-left: 3px solid #569cd6;
+        }
+        
+        blockquote {
+            margin: 1rem 0;
+            padding: 0.75rem 1rem;
+            background-color: #2d2d30;
+            border-left: 3px solid #569cd6;
+            font-style: italic;
+        }
+        
+        ul {
+            list-style-type: none;
+            padding-left: 1.5rem;
+        }
+        
+        ul li {
+            position: relative;
+            padding-left: 1rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        ul li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #569cd6;
+        }
+        
+        pre {
+            background-color: #1e1e1e;
+            padding: 1rem;
+            border-radius: 4px;
+            overflow-x: auto;
+        }
+        
+        code {
+            font-family: 'Fira Code', 'Source Code Pro', Consolas, Monaco, 'Andale Mono', monospace;
+        }
+        
+        @media print {
+            body {
+                background-color: #1e1e1e !important;
+                color: #d4d4d4 !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            
+            .article-content {
+                background-color: #252526 !important;
+                border-left: 3px solid #569cd6 !important;
+            }
+            
+            blockquote {
+                background-color: #2d2d30 !important;
+                border-left: 3px solid #569cd6 !important;
+            }
+        }
+        
+        /* Responsive design for mobile */
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+            
+            h1 {
+                font-size: 1.75rem;
+            }
+            
+            h2 {
+                font-size: 1.5rem;
+            }
+            
+            .article-content {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 导航链接 -->
+        <a href="projects.html" class="nav-link">
+            <i class="fas fa-arrow-left mr-2"></i> Back to AI Projects
+        </a>
+        
+        <!-- 文章标题和日期 -->
+        <h1 class="text-3xl mb-2">Restaurant DeepResearch: Creating a Multi-Agent System Inspired by Real-Life Decision-Making via Using MCP Server</h1>
+        <div class="date">April 11, 2025</div>
+        
+        <!-- 项目介绍 -->
+        <h2 class="text-2xl mt-6 mb-3">Restaurant DeepResearch</h2>
+        <p>This project is open-source! Check out the code, contribute, or use it for your own projects.</p>
+        
+        <!-- GitHub按钮 -->
+        <a href="https://github.com/YangLi-leo/restaurant-deepresearch" class="github-button">
+            <i class="fab fa-github mr-2"></i> View on GitHub
+        </a>
+        
+        <!-- 文章内容 -->
+        <div class="article-content">
+            <div class="comment"># project_inspiration.py</div>
+            
+            <pre><code><span class="keyword">def</span> <span class="function">project_inspiration</span>():
+    <span class="string">"""Project Inspiration"""</span>
+    
+    <span class="comment"># The story behind Restaurant DeepResearch</span></code></pre>
+            
+            <p>The idea for this project came from a painfully familiar situation: trying to decide where to eat. I'd open Google Maps with high hopes, only to be buried in a sea of restaurants that all kind of looked the same. The filters? Not helpful. My cravings? Vague at best. Every choice felt like a gamble. Sometimes I'd text a friend for help, and while the conversation would often start with indecision, it usually turned into something more helpful. We'd share tips, recommend places, and even discover new spots through our back-and-forth. In the end, we almost always found somewhere that worked. That's when it hit me—what if I had a smart assistant who actually understood what I wanted, could think through the options, and maybe even talk it out with me like a foodie friend who never gets tired?</p>
+            
+            <p>That led to a core question: how can we build an AI system that mimics how humans decide where to eat—through discussion, reasoning, and using external tools like Google Maps? Most existing AI planning systems rely on rigid workflows, yet real-life decision-making is often spontaneous and conversational. This project explores how a multi-agent system can simulate this natural, collaborative process.</p>
+            
+            <p>To enable this, I leverage an MCP (Model Context Protocol) server to unify various tool-calling APIs and use the CAMEL-AI framework to build agents capable of reasoning, communicating, and acting in a shared environment. The goal is to replicate the casual yet effective way people choose restaurants: search, compare, ask, and refine.</p>
+            
+            <div class="comment"># project_inspiration_sources.py</div>
+            
+            <pre><code><span class="keyword">def</span> <span class="function">inspiration_sources</span>():
+    <span class="string">"""Key Ideas That Inspired This Project"""</span></code></pre>
+            
+            <p>This project is inspired by several ideas:</p>
+            
+            <ul>
+                <li><span class="keyword">MCP Servers' Growing Popularity:</span> Nowadays, MCP servers have become very popular, significantly streamlining the process for developers creating tool-calling functions for large language models (LLMs). For example, I use the Google Maps MCP server in this project, combining seven useful tools—search_nearby, get_place_details, maps_geocode, maps_reverse_geocode, maps_distance_matrix, maps_directions, and maps_elevation—into a single JSON file, which is remarkably efficient.</li>
+                <li><span class="keyword">Mimicking Real-life Decision-making:</span> When searching for places to eat, I typically use Google Maps and then discuss options with my friends, eventually reaching a satisfying decision. So why not allow AI agents to replicate this same process?</li>
+                <li><span class="keyword">Encouraging Open-ended Exploration:</span> I don't believe we necessarily need a rigid workflow for this type of task. Our successful decisions often result from discussions and interactions with external tools like Google. Creating an environment where agents can autonomously explore ideas is crucial. That's why I chose to use CAMEL-AI's framework instead of alternatives like LangChain or AutoGen.</li>
+            </ul>
+            
+            <p>Based on these ideas, my approach was to break down the task into manageable components or, more accurately, recreate my daily decision-making environment for AI agents.</p>
+            
+            <div class="comment"># implementation_approach.py</div>
+            
+            <pre><code><span class="keyword">def</span> <span class="function">implementation_approach</span>():
+    <span class="string">"""Step-by-step Approach"""</span></code></pre>
+            
+            <p>Firstly, my project is triggered by user prompts. From a product design perspective, it's unrealistic to expect users to write prompts in markdown or clearly specify every need. Therefore, we require a robust reasoning model to thoroughly understand user intentions and needs.</p>
+            
+            <p>Secondly, beyond understanding users, models also need to understand each other. Thus, we applied prompt engineering techniques to ensure the output from the first reasoning model is structured clearly in markdown format. This step significantly enhances the task environment, setting the stage effectively for subsequent role-playing sessions.</p>
+            
+            <p>Thirdly, the project's most crucial component is the role-playing session itself. Since this is my first significant project, I chose a straightforward implementation—directly using CAMEL's pre-defined OwlRolePlaying class. This class involves two roles: a user and an assistant. To conceptualize this, imagine chatting with a friend who happens to be an interactive toolbox. When you share ideas, it executes relevant tools, provides feedback, and reviews its findings—truly an impressive capability. Creating such an environment is indeed essential. I'll demonstrate some examples below. For the assistant role, I highly recommend using a powerful tool-calling model.</p>
+            
+            <p>I also recommend that anyone using this framework take time to carefully read through the conversations between agents. Occasionally, you'll encounter a genuine "Aha!" moment—where the agents demonstrate surprisingly intuitive reasoning or creative insight. These are the sparks that show why this kind of environment matters, and why reinforcement learning could play a key role in making it even better. I'll continue updating this point as the project evolves.</p>
+            
+            <p>Finally, the sessions are constrained to 10 rounds, ensuring the agents maintain high-quality dialogue within a limited context. The assistant's final answer is the output you receive, clearly explaining why a specific restaurant was chosen while offering engaging, meaningful interactions.</p>
+            
+            <div class="comment"># evaluation_process.py</div>
+            
+            <pre><code><span class="keyword">def</span> <span class="function">evaluation_methodology</span>():
+    <span class="string">"""Evaluation Methodology"""</span>
+    
+    <span class="comment"># Note: Due to API quota limitations, I was unable to complete all tests.
+    # Will update with full test results once the API limits are reset.</span></code></pre>
+            
+            <p>To evaluate the performance of different tools, I tested the same task across four platforms: Google DeepResearch, Perplexity DeepResearch, OpenAI DeepResearch, and Manus (yes—I recently got access). While I don't have a formal benchmark, this comparison offers a practical view of each tool's behavior under the same conditions.</p>
+            
+            <p>To ensure fairness, I used nearly identical prompts across all tools. Since Manus includes a human-in-the-loop design, I first submitted the original prompt to Manus, then incorporated the additional information it requested into a revised version. This slightly modified version was then used as the standard prompt for the other tools, including my own system. Due to current access limitations, I was only able to use Gemini 2.5 Pro Experimental, which unfortunately hit its quota during testing. I'll update my own results as soon as I'm able to rerun the full test.</p>
+            
+            <p>Here's the prompt we used for evaluation:</p>
+            
+            <blockquote>
+                We are a family of three from China visiting Tokyo for the very first time, and we are planning our trip for early October to enjoy the mild autumn weather and seasonal Japanese specialties. Our family includes two adults and one enthusiastic 6-year-old child.
+                <br><br>
+                We are seeking an extraordinary dinner experience that embodies the authentic essence of Japanese cuisine and culture. Specifically, we are very interested in a dining concept that offers either a sushi omakase or kaiseki course menu—or even a blend of both—highlighting the season's freshest ingredients and the culinary artistry behind each dish. An interactive element, such as an open kitchen or chef's table setting, would be a delightful bonus, allowing us and our child to observe and appreciate the meticulous preparation of the meals.
+                <br><br>
+                In terms of ambiance, we envision a venue that is both elegant and family-friendly, combining traditional Japanese decor (think tatami seating, ambient lighting, and subtle cultural details) with a modern and comfortable atmosphere suitable for a relaxed evening. Additionally, to make our dining experience more accessible and enjoyable, we prefer restaurants that offer menus or service in English or Chinese.
+                <br><br>
+                Our budget is approximately ¥8,000 to ¥15,000 per person, and we are looking for a location in a culturally rich, historic area of Tokyo—such as Asakusa or a similarly charming neighborhood—that offers a seamless blend of traditional heritage and modern convenience. We also value the ease of making reservations, so a restaurant that accepts online bookings or where assistance with direct reservations is available would be ideal.
+                <br><br>
+                Overall, we aim for a dinner experience that not only delights our taste buds with authentic Japanese flavors and seasonal specialties but also immerses us in the cultural traditions and warm hospitality of Japan, making our first visit to Tokyo truly unforgettable.
+            </blockquote>
+            
+            <div class="comment"># challenges_and_improvements.py</div>
+            
+            <pre><code><span class="keyword">def</span> <span class="function">challenges_encountered</span>():
+    <span class="string">"""Challenges Encountered During Development"""</span></code></pre>
+            
+            <ul>
+                <li>Initially, upon choosing CAMEL's framework, I instinctively wanted to design explicit workflows (decomposing large tasks into smaller subtasks, assigning individual agents, and finally synthesizing the results). Being stuck on this approach delayed the project by 2-3 days.</li>
+                <li>Through A/B testing, I assessed whether foundational models significantly impacted results. Starting with Gemini 2.0 Flash and then upgrading to Gemini 2.5 Pro Experimental, I observed considerable improvement in both the quality of results and the role-playing interactions. Interestingly, Gemini 1.5 Pro frequently attempted to invoke external tools despite clear prompt instructions, whereas Gemini 2.5 Pro resolved this issue entirely. Overall, Gemini 2.5 Pro proved extremely effective.</li>
+                <li>I attempted adding a critic role to the session, but due to possible misconfiguration, this resulted in infinite loops.</li>
+                <li>As a beginner in programming, uploading my project to GitHub was challenging. Despite using Docker to streamline the process, I encountered persistent issues, particularly with errors stating my Google Maps API key was invalid.</li>
+            </ul>
+            
+            <pre><code><span class="keyword">def</span> <span class="function">areas_for_improvement</span>():
+    <span class="string">"""Areas for Future Improvement"""</span></code></pre>
+            
+            <ul>
+                <li>While Google Maps MCP server is robust, integrating additional tools could enhance results further.</li>
+                <li>During role-playing sessions, agents occasionally expressed uncertainty regarding user requirements, proceeding based on assumptions. Thus, incorporating human-in-the-loop interactions—where agents actively seek additional details from humans—could greatly enhance research depth. During tests comparing my project with other deep research tools such as Manus, OpenAI, Google, and Perplexity, we found that both Manus and OpenAI have automatic human-in-the-loop processes. They can proactively ask the user for missing information instead of relying on the user to modify their plan. This ability is clearly valuable and highlights the importance of such a process.</li>
+                <li>Although I haven't precisely measured the cost per search, based on observation, it appears expensive. Improving efficiency remains crucial.</li>
+                <li>Addressing points 2 and 3, developing a customized Roleplay class is essential, and this work is underway.</li>
+            </ul>
+            
+            <div class="comment"># conclusions.py</div>
+            
+            <pre><code><span class="keyword">def</span> <span class="function">final_thoughts</span>():
+    <span class="string">"""Final Thoughts"""</span></code></pre>
+            
+            <p>AI Agents will significantly reshape the AI market landscape. However, we shouldn't impose human-centric thinking when designing AI systems. While LLMs exhibit human-like qualities, they follow fundamentally different rules. Thus, it's important to provide environments tailored specifically to AI agents, allowing them to reach their full potential. Rigid workflows may no longer be optimal; instead, we should leverage flexible environments to foster positive outcomes. My next project will explore this philosophy further.</p>
+            
+            <p>Also, with Google's recent release of A2A, we are witnessing even greater potential for a sophisticated Multi-Agent web ecosystem. Let's keep pushing the boundaries.</p>
+            
+            <pre><code><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:
+    project_inspiration()
+    inspiration_sources()
+    implementation_approach()
+    evaluation_methodology()
+    challenges_encountered()
+    areas_for_improvement()
+    final_thoughts()
+    
+    <span class="comment"># Thank you for reading!</span></code></pre>
+        </div>
+        
+        <!-- Footer -->
+        <footer class="mt-16 pt-6 border-t border-gray-700 text-center text-gray-500 text-sm">
+            <p class="footer-content">
+                <span class="comment"># &copy; 2025 Yang Li. All rights reserved.</span><br>
+                <span class="comment"># Made with "Python-style CSS" and {<span class="string">❤️</span>: <span class="keyword">True</span>}</span>
+            </p>
+        </footer>
+    </div>
+</body>
+</html>
